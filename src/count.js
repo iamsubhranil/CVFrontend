@@ -4,15 +4,11 @@ function hit() {
 
   // Get the current visitor count from your server
   var xhr = new XMLHttpRequest();
-  xhr.open(
-    "GET",
-    "https://resume-visitor-count.azurewebsites.net/api/hit",
-    true
-  );
+  xhr.open("GET", "https://resume-visitor-count.azurewebsites.net/api/", true);
   xhr.onload = function () {
     if (xhr.status === 200) {
       // Display the visitor count on the web page
-      visitorCountElement.textContent = "Visitor count: " + xhr.responseText;
+      visitorCountElement.textContent = xhr.responseText;
     }
   };
   xhr.send();
