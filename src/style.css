@@ -47,6 +47,17 @@ body {
 	font-weight: 600;
 	margin: 0;
   }
+
+  header a {
+	display: flex;
+	justify-content: left;
+	color: beige;
+  }
+
+  header a img {
+	max-width: 25px;
+	padding: 0 1rem 0.5rem 0;
+  }
   
   header nav {
 	display: flex;
