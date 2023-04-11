@@ -97,11 +97,11 @@ body {
   section ul {
 	margin: 0;
 	padding: 0 1.5rem 0 1.5rem;
-	list-style: none;
+	list-style: square;
   }
   
   section ul li {
-	margin-bottom: 0.5rem;
+	margin-bottom: 0rem;
   }
   
   section ul li span {
