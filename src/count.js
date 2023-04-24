@@ -21,6 +21,7 @@ function checkAndReformat() {
   if (printable) {
     document.getElementById("body").style.lineHeight = 1.2;
     document.getElementById("body").style.backgroundColor = "white";
+    document.getElementById("body").style.color = "black";
     document.getElementById("main").style.maxWidth = "100%";
     document.getElementById("main").style.margin = "0";
     document.getElementById("heading").style.display = "grid";
