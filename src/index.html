@@ -41,11 +41,22 @@
 					</p>
 				</li>
 				<li>
-					<h3 class="fit-item">Microsoft Azure Hacking Lab</h3>
+					<h3 class="fit-item">AWS Deployment with Terraform</h3>
 					<p class="fit-item">
-						Built a hacking lab in Azure to simulate an enterprise network and vulnerable machines.
-						Deployed an Windows 2022 domain controller and two Windows 11 domain-connected machines using 
-						Azure Virtual Machines. Utilized Azure Monitor to monitor the health of the machines and create alerts.
+						Used Terraform to simulate an enterprise on AWS. Created multiple IAM users, departments
+						and policies for the departments. Deployed multiple EC2 instances for each of the departments. 
+						Created S3 buckets, and redirected their access logs to a specialized "logbucket". Used S3 Lifecycles 
+						to implement storage tiers, automatically moving older logs to Glacier storage.
+					</p>
+				</li>
+				<li>
+					<h3 class="fit-item">Scalable Python Application with Kubernetes</h3>
+					<p class="fit-item">
+						Used Kuberenets to deploy a high availability Flask application. Configured 9 replicas for the frontend, 
+						and used NodePort to expose the frontend and MySQL backend to specific ports on the node. Used 
+						Horizontal Pod Autoscaling to automatically rescale the application based on user demand and CPU usage. 
+						Used YAML files for all the services, deployments and the HPA to make the configuration reproducible and 
+						automated.
 					</p>
 				</li>
 				<li>
@@ -54,7 +65,15 @@
 						Currently running 30+ Docker containers ranging from healthcheck, media management to home automation and adblocking.
 						Using 2-tiered storage for caching with LVM. Configured a reverse proxy with Nginx and Let's Encrypt for SSL.
 						Implemented Authelia as the SSO solution with 2FA using Microsoft Authenticator. Configured alerts using Prometheus and Grafana.
-						Enabled remote access to local network using Wireguard via a VPS hosted on Azure.
+						Enabled remote access to the server and rest of the local network using Wireguard via a VPS hosted on Azure.
+					</p>
+				</li>
+				<li>
+					<h3 class="fit-item">Microsoft Azure Hacking Lab</h3>
+					<p class="fit-item">
+						Built a hacking lab in Azure to simulate an enterprise network and vulnerable machines.
+						Deployed an Windows 2022 domain controller and two Windows 11 domain-connected machines using 
+						Azure Virtual Machines. Utilized Azure Monitor to monitor the health of the machines and create alerts.
 					</p>
 				</li>
 			</ul>
