@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Subhranil Mukherjee - Cloud Technology enthusiast & Programmer</title>
+	<title>Subhranil Mukherjee - Compiler Enthusiast & Programmer</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="count.js"></script>
+	<script src="count.js" type="module"></script>
 </head>
 <body id="body">
 	<header id="heading">
@@ -24,64 +24,22 @@
 	<main id="main">
 		<section>
 			<h2>Summary</h2>
-			<p class="pad-sides">Obsessed Cloud Technology enthusiast with an impressive local and Microsoft Azure homelabs.
-				Dedicated IT support professional with 2 years of experience in managing and maintaining IT infrastructure.
-				Passionate self learnt programmer with experience ranging from building medium sized programming languages to creating an operating system, and everything in between.</p>
+			<p class="pad-sides" id="summary">Dedicated and highly skilled software engineer with a strong background in developing 
+				high-performance software systems. Successfully designed and implemented a wide range of projects showcasing 
+				innovative solutions and performance optimizations. Seeking an opportunity to leverage technical expertise 
+				for the organization's success.
+			</p>
 		</section>
 		<section>
-			<h2>Cloud Experience</h2>
-			<ul>
-				<li>
-					<h3 class="fit-item">Cloud Resume Challenge</h3>
-					<p class="fit-item">
-						Created a static web app on Azure, gave it an Azure CDN endpoint and bound the endpoint to a custom domain with HTTPS.
-						Used Azure Cosmos DB with Table backend to implement a hit counter, wrote some Python code to fetch and update
-						the hit count, and used Azure Functions to host the code. Finally, implemented CI/CD using Github Actions to
-						automatically deploy both frontend and backend code on every push to the individual main branches.
-					</p>
-				</li>
-				<li>
-					<h3 class="fit-item">AWS Deployment with Terraform</h3>
-					<p class="fit-item">
-						Wrote Terraform scripts to simulate an enterprise on AWS. Created multiple IAM users, departments
-						and policies for the departments. Deployed multiple EC2 instances for each of the departments. 
-						Created S3 buckets, and redirected their access logs to a specialized "logbucket". Used S3 Lifecycles 
-						to implement storage tiers, automatically moving older logs to Glacier storage.
-					</p>
-				</li>
-				<li>
-					<h3 class="fit-item">Scalable Python Application with Kubernetes</h3>
-					<p class="fit-item">
-						Used Kuberenets to deploy a high availability Flask application. Configured 9 replicas for the frontend, 
-						and used NodePort to expose the frontend and MySQL backend to specific ports on the node. Used 
-						Horizontal Pod Autoscaling to automatically rescale the application based on user demand and CPU usage. 
-						Used YAML files for all the services, deployments and the HPA to make the configuration reproducible and 
-						automated.
-					</p>
-				</li>
-				<li>
-					<h3 class="fit-item">Home Lab</h3>
-					<p class="fit-item">
-						Currently running 30+ Docker containers ranging from healthcheck, media management to home automation and adblocking.
-						Using 2-tiered storage for caching with LVM. Configured a reverse proxy with Nginx and Let's Encrypt for SSL.
-						Implemented Authelia as the SSO solution with 2FA using Microsoft Authenticator. Configured alerts using Prometheus and Grafana.
-						Enabled remote access to the server and rest of the local network using Wireguard via a VPS hosted on Azure.
-					</p>
-				</li>
-				<li>
-					<h3 class="fit-item">Microsoft Azure Hacking Lab</h3>
-					<p class="fit-item">
-						Built a hacking lab in Azure to simulate an enterprise network and vulnerable machines.
-						Deployed an Windows 2022 domain controller and two Windows 11 domain-connected machines using 
-						Azure Virtual Machines. Utilized Azure Monitor to monitor the health of the machines and create alerts.
-					</p>
-				</li>
+			<h2>Relevant Experience</h2>
+			<ul id="showcase">
+				<!-- Generated automatically -->
 			</ul>
 		</section>
 		<section>
 			<h2>Work Experience</h2>
 			<div class="container_vertical">
-				<h3 class="fit-item">Tata Consultancy Services</h3>
+				<h3 class="fit-item"><b>Tata Consultancy Services</b></h3>
 				<h4 class="fit-item">08/2021 - Current</h4>
 			</div>
 			<p class="fit-item" style="margin-bottom: 0.5rem;"><em>Systems Engineer</em></p>
@@ -101,14 +59,14 @@
 			<ul>
 				<li>
 					<div class="container_vertical">
-						<h3 class="fit-item">University of Calcutta</h3>
+						<h3 class="fit-item"><b>University of Calcutta</b></h3>
 						<h4 class="fit-item">2021</h4>
 					</div>
 					<p class="fit-item" style="font-style: italic;">M. Sc. in Computer Science (GPA: 8.8)</p>
 				</li>
 				<li>
 					<div class="container_vertical">
-						<h3 class="fit-item">Seth Anandram Jaipuria College</h3>
+						<h3 class="fit-item"><b>Seth Anandram Jaipuria College</b></h3>
 						<h4 class="fit-item">2019</h4>
 					</div>
 					<p class="fit-item" style="font-style: italic;">B. Sc. in Computer Science (GPA: 8.3)</p>
@@ -116,21 +74,15 @@
 			</ul>
 		</section>
 		<section>
-			<h2>Projects</h2>
-			<ul>
-				<li><a href="https://github.com/iamsubhranil/MyOS">MyOS</a> - A tiny, tiny operating system written in C++</li>
-				<li><a href="https://github.com/iamsubhranil/Next">Next</a> - A familiar, fast programming language</li>
-				<li><a href="https://github.com/iamsubhranil/OpenWRTSnapshot">OpenWRTSnapshot</a> - A collection of scripts to build, install and automatically setup a customized version of OpenWRT for my home routers</li>
-				<li><a href="https://github.com/iamsubhranil/AutoCar">AutoCar</a> - A self learnt racing game powered by neural networks and and a genetic algorithm written in Python</li>
-				<li><a href="https://github.com/iamsubhranil/ThinkDifferent">ThinkDifferent</a> - A music player written in Java</li>
-				<li><a href="https://github.com/iamsubhranil/The8085_v2">The8085</a> - An 8085 emulator written in C</li>
+			<h2>Other Projects</h2>
+			<ul id="others">
+				<!-- Generated automatically -->
 			</ul>
 		</section>
 		<div class="container_vertical" id="skillsection">
 			<section>
 				<h2>Skills</h2>
 				<ul>
-					<li>Docker</li>
 					<li>C</li>
 					<li>C++</li>
 					<li>Python</li>
@@ -138,6 +90,7 @@
 					<li>Rust</li>
 					<li>Linux</li>
 					<li>Bash</li>
+					<li>Docker</li>
 					<li>Networking</li>
 				</ul>
 			</section>

@@ -14,16 +14,26 @@
 	src: url('fonts/OpenSans-SemiBold.ttf');
 }
 
+@font-face {
+	font-family: 'Computer Modern';
+	src: url('fonts/cmunrm.ttf');
+}
+
+@font-face {
+	font-family: 'Computer Modern Bold';
+	src: url('fonts/cmunbx.ttf');
+}
+
   body {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
+	font-size: 18px;
 	color: #333;
 	background-color: beige;
 	line-height: 1.5;
   }
   
   a {
-	color: #007bff;
+	color: #333;
 	text-decoration: none;
   }
   
