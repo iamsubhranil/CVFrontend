@@ -2,6 +2,7 @@ export const data =
 [
     {
         version: "cpp",
+        oneliner: "Compiler Enthusiast & Programmer",
         summary: "Dedicated and highly skilled software engineer with a strong background in developing \
                     high-performance software systems. Successfully designed and implemented a wide range of projects showcasing \
                     innovative solutions and performance optimizations. Seeking an opportunity to leverage technical expertise \
@@ -101,6 +102,7 @@ export const data =
     },
     {
         version: "cloud",
+        oneliner: "Cloud Technology Enthusiast & Programmer",
         summary: "Obsessed Cloud Technology enthusiast with an impressive local and Microsoft Azure homelabs. \
         Dedicated IT support professional with 2 years of experience in managing and maintaining IT \
         infrastructure. Passionate self learnt programmer with experience ranging from building medium \

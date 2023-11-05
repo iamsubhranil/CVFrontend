@@ -33,6 +33,9 @@ function designBody() {
 		}
 	});
 
+	document.getElementById('pagetitle').innerHTML += " - " + content.oneliner;
+	document.getElementById('oneliner').innerHTML = content.oneliner;
+
 	var summary = document.getElementById("summary");
 	summary.innerHTML = content.summary;
 
@@ -96,7 +99,7 @@ function checkAndReformat() {
     document.getElementById("heading").style.backgroundColor = "white";
     document.getElementById("heading").style.justifyContent = "left";
     document.getElementById("heading").style.paddingBottom = "0.5rem";
-    document.getElementById("one-liner").style.display = "none";
+    document.getElementById("oneliner").style.display = "none";
     const links = document.getElementById("links");
     var emailId = null;
     for (let i = 0; i < links.children.length; i++) {
