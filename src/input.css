@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-frosted-glass {
+  background-color: rgba(0, 0, 0, 0.442);
+  backdrop-filter: blur(5px);
+}
+.blend-lighten {
+  mix-blend-mode: lighten;
+}
+.section-blend {
+  display: flex;
+  mix-blend-mode: lighten;
+}
+.section-blend > * {
+  flex: 1;
+}

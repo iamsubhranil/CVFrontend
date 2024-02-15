@@ -1,4 +1,4 @@
-export const data = [
+export const PROJECTS = [
 	{
 		version: "cpp",
 		oneliner: "Compiler Enthusiast & Programmer",
@@ -9,8 +9,10 @@ export const data = [
                     for the organization's success.",
 		showcase: [
 			{
-				name: "A dynamically typed programming language",
+				name: "Dynamically Typed Programming Language",
 				link: "https://github.com/iamsubhranil/Next",
+				img: "https://raw.githubusercontent.com/iamsubhranil/Next/develop/img/renderer.png",
+				img_alt: "A ray traced renderer written in Next",
 				details: [
 					"Developed a high-performance, object-oriented programming language in C++",
 					"Outperformed Python and Lua in benchmark tests",
@@ -21,8 +23,10 @@ export const data = [
 				],
 			},
 			{
-				name: "An Intel 8085 simulator",
+				name: "Intel 8085 Simulator",
 				link: "https://github.com/iamsubhranil/The8085_v2",
+				img: "https://raw.githubusercontent.com/iamsubhranil/The8085_v2/develop/img/img0.png",
+				img_alt: "Running a program in the simulator",
 				details: [
 					"Developed a streamlined, high-performance 8085 simulator in pure C",
 					"The simulator provides full support for original 8085 opcodes",
@@ -32,8 +36,10 @@ export const data = [
 				],
 			},
 			{
-				name: "A x86 Operating System",
+				name: "x86 Operating System",
 				link: "https://github.com/iamsubhranil/MyOS",
+				img: "https://raw.githubusercontent.com/iamsubhranil/MyOS/master/img/img0.png",
+				img_alt: "Booting the operating system",
 				details: [
 					"Designed and implemented an x86-based operating system using C++",
 					"Implemented interrupts using descriptor tables",
@@ -43,32 +49,39 @@ export const data = [
 				],
 			},
 			{
+				name: "Home Lab",
+				img: "./homelab.png",
+				details: [
+					"Managing and orchestrating a diverse set of 30+ Docker containers, spanning health check, media management, home automation, and ad-blocking services",
+					"Configured a robust reverse proxy system with Nginx and Let's Encrypt for secure SSL connections",
+					"Implemented Authelia as a Single Sign-On (SSO) solution, enhancing security through two-factor authentication using Microsoft Authenticator",
+					"Set up alerts and monitoring using Prometheus and Grafana for system health and performance tracking",
+					"Established remote server access and extended network accessibility via Wireguard, facilitated by a VPS hosted on Microsoft Azure",
+				],
+			},
+			{
 				name: "NTP Clock",
 				link: "https://github.com/iamsubhranil/NTPClock2",
+				img: "./ntpclock.png",
 				details: [
 					"Created an ESP32-based digital clock integrated with a dot matrix display",
 					"The codebase, developed in C++, features an NTP clock with a web-based configuration page",
 					"Added a BMP280 temperature sensor and an automated on/off function based on the time of day",
+					"Called APIs to get local weather, which was cached and updated at an interval",
+					"The device featured automatic hotspot capabilities in case of WiFi signal loss",
 				],
 			},
 			{
 				name: "3D Renderer",
 				link: "https://github.com/iamsubhranil/Renderer",
+				img: "https://raw.githubusercontent.com/iamsubhranil/Renderer/cuda/img/cat.png",
+				img_alt: "Rendering a cat using the renderer",
 				details: [
 					"Developed a C++-based OBJ file renderer using SDL",
 					"Implemented controls for translating and rotating the rendered object within the window",
 					"Provided a user-friendly and interactive UI for 3D rendering experience",
-				],
-			},
-			{
-				name: "Home Lab",
-				details: [
-					"Managing and orchestrating a diverse set of 30+ Docker containers, spanning health check, media management, home automation, and ad-blocking services",
-					"Utilizing a two-tiered storage approach with LVM to enhance caching capabilities",
-					"Configured a robust reverse proxy system with Nginx and Let's Encrypt for secure SSL connections",
-					"Implemented Authelia as a Single Sign-On (SSO) solution, enhancing security through two-factor authentication using Microsoft Authenticator",
-					"Set up alerts and monitoring using Prometheus and Grafana for system health and performance tracking",
-					"Established remote server access and extended network accessibility via Wireguard, facilitated by a VPS hosted on Microsoft Azure",
+					"Implemented a CUDA backend for the projection workflow",
+					"Added various matrix types to copy data to and from CPU and GPU",
 				],
 			},
 		],
