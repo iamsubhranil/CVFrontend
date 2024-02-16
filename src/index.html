@@ -7,23 +7,22 @@
 		<script src="fillContent.js" type="module"></script>
 	</head>
 	<body class="bg-background m-10 bg-fixed bg-cover" id="val_body">
-		<section class="relative bg-fixed bg-background bg-cover">
-			<div class="h-56"></div>
+		<section class="mb-8 bg-fixed bg-background bg-cover">
 			<div
-				class="container absolute left-1/2 top-1/2 mx-auto -translate-x-1/2 -translate-y-1/2 transform bg-frosted-glass p-6 rounded-lg w-max space-y-4 shadow-2xl"
+				class="container mx-auto bg-frosted-glass p-6 rounded-lg space-y-4 shadow-2xl justify-center w-min"
 			>
 				<h1
-					class="text-center font-sans text-5xl text-slate-200"
+					class="text-center text-5xl font-sans text-slate-200 mx-auto"
 					id="val_name"
 				></h1>
 				<h2
-					class="font-sans text-2xl text-center text-slate-200"
+					class="font-sans text-2xl text-center text-slate-200 mx-auto"
 					id="val_oneliner"
 				></h2>
-				<h2
-					class="text-center flex justify-between font-sans text-2xl text-slate-200"
+				<div
+					class="flex flex-wrap justify-center font-sans text-xl text-slate-200"
 				>
-					<a class="flex" id="val_link_github">
+					<a  id="val_link_github">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="16"
@@ -38,7 +37,7 @@
 						</svg>
 						<p class="px-2">GitHub</p>
 					</a>
-					<a class="flex" id="val_link_linkedin">
+					<a  id="val_link_linkedin">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="16"
@@ -53,7 +52,7 @@
 						</svg>
 						<p class="px-2">LinkedIn</p></a
 					>
-					<a class="flex" id="val_link_mail">
+					<a  id="val_link_mail">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="16"
@@ -68,7 +67,7 @@
 						</svg>
 						<p class="px-2">Mail</p></a
 					>
-					<a class="flex" id="val_link_resume">
+					<a id="val_link_resume">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="16"
@@ -83,10 +82,10 @@
 						</svg>
 						<p class="px-2">Resume</p></a
 					>
-				</h2>
+				</div>
 			</div>
 		</section>
-		<section>
+		<section class="mb-8 bg-background bg-fixed bg-cover">
 			<div class="container mx-auto">
 				<h2
 					class="mb-8 text-3xl font-bold text-slate-200 bg-frosted-glass w-max p-3 rounded-lg shadow-2xl"
