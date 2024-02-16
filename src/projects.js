@@ -1,19 +1,19 @@
 export const PROJECTS = [
 	{
-		version: "cpp",
-		oneliner: "Compiler Enthusiast & Programmer",
-		summary:
+		"version": "cpp",
+		"oneliner": "Compiler Enthusiast & Programmer",
+		"summary":
 			"Dedicated and highly skilled software engineer with a strong background in developing \
                     high-performance software systems. Successfully designed and implemented a wide range of projects showcasing \
                     innovative solutions and performance optimizations. Seeking an opportunity to leverage technical expertise \
                     for the organization's success.",
-		showcase: [
+		"showcase": [
 			{
-				name: "Dynamically Typed Programming Language",
-				link: "https://github.com/iamsubhranil/Next",
-				img: "https://raw.githubusercontent.com/iamsubhranil/Next/develop/img/renderer.png",
-				img_alt: "A ray traced renderer written in Next",
-				details: [
+				"name": "Dynamically Typed Programming Language",
+				"link": "https://github.com/iamsubhranil/Next",
+				"img": "https://raw.githubusercontent.com/iamsubhranil/Next/develop/img/renderer.png",
+				"img_alt": "A ray traced renderer written in Next",
+				"details": [
 					"Developed a high-performance, object-oriented programming language in C++",
 					"Outperformed Python and Lua in benchmark tests",
 					"Implemented a fast bytecode virtual machine",
@@ -23,11 +23,11 @@ export const PROJECTS = [
 				],
 			},
 			{
-				name: "Intel 8085 Simulator",
-				link: "https://github.com/iamsubhranil/The8085_v2",
-				img: "https://raw.githubusercontent.com/iamsubhranil/The8085_v2/develop/img/img0.png",
-				img_alt: "Running a program in the simulator",
-				details: [
+				"name": "Intel 8085 Simulator",
+				"link": "https://github.com/iamsubhranil/The8085_v2",
+				"img": "https://raw.githubusercontent.com/iamsubhranil/The8085_v2/develop/img/img0.png",
+				"img_alt": "Running a program in the simulator",
+				"details": [
 					"Developed a streamlined, high-performance 8085 simulator in pure C",
 					"The simulator provides full support for original 8085 opcodes",
 					"Includes an integrated assembler, disassembler, debugger, and virtual machine",
@@ -36,11 +36,11 @@ export const PROJECTS = [
 				],
 			},
 			{
-				name: "x86 Operating System",
-				link: "https://github.com/iamsubhranil/MyOS",
-				img: "https://raw.githubusercontent.com/iamsubhranil/MyOS/master/img/img0.png",
-				img_alt: "Booting the operating system",
-				details: [
+				"name": "x86 Operating System",
+				"link": "https://github.com/iamsubhranil/MyOS",
+				"img": "https://raw.githubusercontent.com/iamsubhranil/MyOS/master/img/img0.png",
+				"img_alt": "Booting the operating system",
+				"details": [
 					"Designed and implemented an x86-based operating system using C++",
 					"Implemented interrupts using descriptor tables",
 					"Features virtual memory based on two level paging and a hybrid tree based heap",
@@ -49,9 +49,9 @@ export const PROJECTS = [
 				],
 			},
 			{
-				name: "Home Lab",
-				img: "./homelab.png",
-				details: [
+				"name": "Home Lab",
+				"img": "./homelab.png",
+				"details": [
 					"Managing and orchestrating a diverse set of 30+ Docker containers, spanning health check, media management, home automation, and ad-blocking services",
 					"Configured a robust reverse proxy system with Nginx and Let's Encrypt for secure SSL connections",
 					"Implemented Authelia as a Single Sign-On (SSO) solution, enhancing security through two-factor authentication using Microsoft Authenticator",
@@ -60,10 +60,10 @@ export const PROJECTS = [
 				],
 			},
 			{
-				name: "NTP Clock",
-				link: "https://github.com/iamsubhranil/NTPClock2",
-				img: "./ntpclock.png",
-				details: [
+				"name": "NTP Clock",
+				"link": "https://github.com/iamsubhranil/NTPClock2",
+				"img": "./ntpclock.png",
+				"details": [
 					"Created an ESP32-based digital clock integrated with a dot matrix display",
 					"The codebase, developed in C++, features an NTP clock with a web-based configuration page",
 					"Added a BMP280 temperature sensor and an automated on/off function based on the time of day",
@@ -72,11 +72,11 @@ export const PROJECTS = [
 				],
 			},
 			{
-				name: "3D Renderer",
-				link: "https://github.com/iamsubhranil/Renderer",
-				img: "https://raw.githubusercontent.com/iamsubhranil/Renderer/cuda/img/cat.png",
-				img_alt: "Rendering a cat using the renderer",
-				details: [
+				"name": "3D Renderer",
+				"link": "https://github.com/iamsubhranil/Renderer",
+				"img": "https://raw.githubusercontent.com/iamsubhranil/Renderer/cuda/img/cat.png",
+				"img_alt": "Rendering a cat using the renderer",
+				"details": [
 					"Developed a C++-based OBJ file renderer using SDL",
 					"Implemented controls for translating and rotating the rendered object within the window",
 					"Provided a user-friendly and interactive UI for 3D rendering experience",
@@ -85,46 +85,46 @@ export const PROJECTS = [
 				],
 			},
 		],
-		others: [
+		"others": [
 			{
-				name: "OpenWRTSnapshot",
-				link: "https://github.com/iamsubhranil/OpenWRTSnapshot",
-				desc: "A collection of scripts to build, install, and automatically set up a customized version of OpenWRT for my home routers",
+				"name": "OpenWRTSnapshot",
+				"link": "https://github.com/iamsubhranil/OpenWRTSnapshot",
+				"desc": "A collection of scripts to build, install, and automatically set up a customized version of OpenWRT",
 			},
 			{
-				name: "AutoCar",
-				link: "https://github.com/iamsubhranil/AutoCar",
-				desc: "A self-learned racing game powered by neural networks and a genetic algorithm written in Python",
+				"name": "AutoCar",
+				"link": "https://github.com/iamsubhranil/AutoCar",
+				"desc": "A self-learned racing game powered by neural networks and a genetic algorithm written in Python",
 			},
 			{
-				name: "ThinkDifferent",
-				link: "https://github.com/iamsubhranil/ThinkDifferent",
-				desc: "A music player written in Java",
+				"name": "ThinkDifferent",
+				"link": "https://github.com/iamsubhranil/ThinkDifferent",
+				"desc": "A music player written in Java",
 			},
 			{
-				name: "Alang",
-				link: "https://github.com/iamsubhranil/Alang",
-				desc: "An algorithmic programming language written in C",
+				"name": "Alang",
+				"link": "https://github.com/iamsubhranil/Alang",
+				"desc": "An algorithmic programming language written in C",
 			},
 			{
-				name: "Scroller",
-				link: "https://github.com/iamsubhranil/Scroller",
-				desc: "An infinite scrolling-based image browser for Android",
+				"name": "Scroller",
+				"link": "https://github.com/iamsubhranil/Scroller",
+				"desc": "An infinite scrolling-based image browser for Android",
 			},
 		],
 	},
 	{
-		version: "cloud",
-		oneliner: "Cloud Technology Enthusiast & Programmer",
-		summary:
+		"version": "cloud",
+		"oneliner": "Cloud Technology Enthusiast & Programmer",
+		"summary":
 			"Obsessed Cloud Technology enthusiast with an impressive local and Microsoft Azure homelabs. \
         Dedicated IT support professional with 2 years of experience in managing and maintaining IT \
         infrastructure. Passionate self learnt programmer with experience ranging from building medium \
         sized programming languages to creating an operating system, and everything in between.",
-		showcase: [
+		"showcase": [
 			{
-				name: "Cloud Resume Challenge",
-				details: [
+				"name": "Cloud Resume Challenge",
+				"details": [
 					"Created a static web app on Azure with an Azure CDN endpoint",
 					"Bound the endpoint to a custom domain with HTTPS",
 					"Used Azure Cosmos DB with Table backend to implement a hit counter and wrote Python code to update it",
@@ -133,8 +133,8 @@ export const PROJECTS = [
 				],
 			},
 			{
-				name: "AWS Deployment with Terraform",
-				details: [
+				"name": "AWS Deployment with Terraform",
+				"details": [
 					"Wrote Terraform scripts to simulate an enterprise on AWS",
 					"Created multiple IAM users, departments, and policies for the departments",
 					"Deployed multiple EC2 instances for each of the departments",
@@ -143,8 +143,8 @@ export const PROJECTS = [
 				],
 			},
 			{
-				name: "Scalable Python Application with Kubernetes",
-				details: [
+				"name": "Scalable Python Application with Kubernetes",
+				"details": [
 					"Used Kubernetes to deploy a high availability Flask application",
 					"Configured 9 replicas for the frontend",
 					"Used NodePort to expose the frontend and MySQL backend to specific ports on the node",
@@ -153,8 +153,8 @@ export const PROJECTS = [
 				],
 			},
 			{
-				name: "Home Lab",
-				details: [
+				"name": "Home Lab",
+				"details": [
 					"Managing and orchestrating a diverse set of 30+ Docker containers, spanning health check, media management, home automation, and ad-blocking services",
 					"Utilizing a two-tiered storage approach with LVM to enhance caching capabilities",
 					"Configured a robust reverse proxy system with Nginx and Let's Encrypt for secure SSL connections",
@@ -164,44 +164,44 @@ export const PROJECTS = [
 				],
 			},
 			{
-				name: "Microsoft Azure Hacking Lab",
-				details: [
+				"name": "Microsoft Azure Hacking Lab",
+				"details": [
 					"Built a hacking lab in Azure to simulate an enterprise network and vulnerable machines",
 					"Deployed a Windows 2022 domain controller and two Windows 11 domain-connected machines using Azure Virtual Machines",
 					"Utilized Azure Monitor to monitor the health of the machines and create alerts",
 				],
 			},
 		],
-		others: [
+		"others": [
 			{
-				name: "MyOS",
-				link: "https://github.com/iamsubhranil/MyOS",
-				desc: "A tiny, tiny operating system written in C++",
+				"name": "MyOS",
+				"link": "https://github.com/iamsubhranil/MyOS",
+				"desc": "A tiny, tiny operating system written in C++",
 			},
 			{
-				name: "Next",
-				link: "https://github.com/iamsubhranil/Next",
-				desc: "A familiar, fast programming language",
+				"name": "Next",
+				"link": "https://github.com/iamsubhranil/Next",
+				"desc": "A familiar, fast programming language",
 			},
 			{
-				name: "OpenWRTSnapshot",
-				link: "https://github.com/iamsubhranil/OpenWRTSnapshot",
-				desc: "A collection of scripts to build, install, and automatically set up a customized version of OpenWRT for my home routers",
+				"name": "OpenWRTSnapshot",
+				"link": "https://github.com/iamsubhranil/OpenWRTSnapshot",
+				"desc": "A collection of scripts to build, install, and automatically set up a customized version of OpenWRT for my home routers",
 			},
 			{
-				name: "AutoCar",
-				link: "https://github.com/iamsubhranil/AutoCar",
-				desc: "A self-taught racing game powered by neural networks and a genetic algorithm written in Python",
+				"name": "AutoCar",
+				"link": "https://github.com/iamsubhranil/AutoCar",
+				"desc": "A self-taught racing game powered by neural networks and a genetic algorithm written in Python",
 			},
 			{
-				name: "ThinkDifferent",
-				link: "https://github.com/iamsubhranil/ThinkDifferent",
-				desc: "A music player written in Java",
+				"name": "ThinkDifferent",
+				"link": "https://github.com/iamsubhranil/ThinkDifferent",
+				"desc": "A music player written in Java",
 			},
 			{
-				name: "The8085",
-				link: "https://github.com/iamsubhranil/The8085_v2",
-				desc: "An 8085 emulator written in C",
+				"name": "The8085",
+				"link": "https://github.com/iamsubhranil/The8085_v2",
+				"desc": "An 8085 emulator written in C",
 			},
 		],
 	},

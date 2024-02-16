@@ -1,14 +1,15 @@
 export const USER = {
-	name: "Subhranil Mukherjee",
-	email: "me@subhranilmukherjee.com",
-	linkedin: "subhranilmukherjee",
-	github: "iamsubhranil",
-	work_experience: [
+	"name": "Subhranil Mukherjee",
+	"email": "me@subhranilmukherjee.com",
+	"linkedin": "subhranilmukherjee",
+	"github": "iamsubhranil",
+	"phone": "+918240013107",
+	"work_experience": [
 		{
-			company: "Tata Consultancy Services",
-			designation: "Systems Engineer",
-			duration: "Aug 2021 - April 2024",
-			highlights: [
+			"company": "Tata Consultancy Services",
+			"designation": "Systems Engineer",
+			"duration": "Aug 2021 - April 2024",
+			"highlights": [
 				"Managed more than 10000 users and devices across Azure AD, IBM ISIM and a few other IGA tools",
 				"Provisioned RSA authentication, temporary/permanent local administrative rights to devices",
 				"Authored and documented 10+ automations in Powershell for mass AD modifications, increasing work efficiency more than 50%",
@@ -20,24 +21,24 @@ export const USER = {
 			],
 		},
 	],
-	education: [
+	"education": [
 		{
-			school: "University of Calcutta",
-			degree: "M. Sc. in Computer Science",
-			duration: "2019 - 2021",
-			gpa: "8.8",
+			"school": "University of Calcutta",
+			"degree": "M. Sc. in Computer Science",
+			"duration": "2019 - 2021",
+			"gpa": "8.8",
 		},
 		{
-			school: "Seth Anandram Jaipuria College",
-			degree: "B. Sc. in Computer Science",
-			duration: "2016 - 2019",
-			gpa: "8.3",
+			"school": "Seth Anandram Jaipuria College",
+			"degree": "B. Sc. in Computer Science",
+			"duration": "2016 - 2019",
+			"gpa": "8.3",
 		},
 	],
-	skills_and_interests: [
+	"skills_and_interests": [
 		{
-			name: "Programming Languages",
-			values: [
+			"name": "Programming Languages",
+			"values": [
 				"C",
 				"C++",
 				"Python",
@@ -48,8 +49,8 @@ export const USER = {
 			],
 		},
 		{
-			name: "Technologies",
-			values: [
+			"name": "Technologies",
+			"values": [
 				"Linux",
 				"Windows",
 				"Docker",
@@ -60,8 +61,8 @@ export const USER = {
 			],
 		},
 		{
-			name: "Soft Skills",
-			values: [
+			"name": "Soft Skills",
+			"values": [
 				"Communication",
 				"Creativity",
 				"Problem Solving",
@@ -72,8 +73,8 @@ export const USER = {
 			],
 		},
 		{
-			name: "Interests",
-			values: [
+			"name": "Interests",
+			"values": [
 				"Music",
 				"Movies",
 				"Video Games",
