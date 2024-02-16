@@ -37,8 +37,11 @@ function addSection(name, children = [], lgcols = 3, smcols = 2) {
 
 	var contentGrid = document.createElement("div");
 	var gridClass = CLASSNAMES["grid"] + lgcols;
-	if(smcols != 2) {
-		gridClass = gridClass.replace("sm:grid-cols-2", "sm:grid-cols-" + smcols);
+	if (smcols != 2) {
+		gridClass = gridClass.replace(
+			"sm:grid-cols-2",
+			"sm:grid-cols-" + smcols
+		);
 	}
 	contentGrid.className = gridClass;
 
@@ -142,8 +145,10 @@ function generateSkillsAndInterests(part) {
 
 function generateSection(name, data, renderer, lgcols = 3, smcols = 2) {
 	document
-		.getElementById("val_body")
-		.appendChild(addSection(name, generateList(data, renderer), lgcols, smcols));
+		.getElementById("populate")
+		.appendChild(
+			addSection(name, generateList(data, renderer), lgcols, smcols)
+		);
 }
 
 function populateContent() {
@@ -164,7 +169,8 @@ function populateContent() {
 		"Work Experience",
 		user["work_experience"],
 		generateWorkExperience,
-		1, 1
+		1,
+		1
 	);
 	generateSection("Education", user["education"], generateEducation, 2);
 	generateSection("Other Projects", projects["others"], generateOtherProject);
@@ -172,8 +178,34 @@ function populateContent() {
 		"Skills & Interests",
 		user["skills_and_interests"],
 		generateSkillsAndInterests,
-		4, 2
+		4,
+		2
 	);
 }
 
-window.onload = populateContent;
+function hit() {
+	// Set the ID of the HTML element that will display the visitor count
+	var visitorCountElement = document.getElementById("val_view_count");
+
+	// Get the current visitor count from your server
+	var xhr = new XMLHttpRequest();
+	xhr.open(
+		"GET",
+		"https://resume-visitor-count.azurewebsites.net/api/",
+		true
+	);
+	xhr.onload = function () {
+		if (xhr.status === 200) {
+			// Display the visitor count on the web page
+			visitorCountElement.textContent = "Page Views:" + xhr.responseText;
+		}
+	};
+	xhr.send();
+}
+
+function prepare() {
+	hit();
+	populateContent();
+}
+
+window.onload = prepare;
