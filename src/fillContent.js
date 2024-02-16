@@ -197,7 +197,7 @@ function hit() {
 	xhr.onload = function () {
 		if (xhr.status === 200) {
 			// Display the visitor count on the web page
-			visitorCountElement.textContent = "Page Views:" + xhr.responseText;
+			visitorCountElement.textContent = "Page Views: " + xhr.responseText;
 		}
 	};
 	xhr.send();
