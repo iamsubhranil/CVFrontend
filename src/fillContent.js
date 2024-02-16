@@ -153,6 +153,7 @@ function populateContent() {
 	setLink("val_link_github", "https://github.com" + user["github"]);
 	setLink("val_link_linkedin", "https://linkedin.com/in" + user["linkedin"]);
 	setLink("val_link_mail", user["email"]);
+	setLink("val_link_resume", user["cv"]);
 
 	generateSection("Projects", projects["showcase"], generateProjectContent);
 	generateSection(
