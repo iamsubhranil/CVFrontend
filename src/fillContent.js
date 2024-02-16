@@ -2,7 +2,7 @@ import { PROJECTS } from "./projects.js";
 import { USER } from "./userdetails.js";
 
 const CLASSNAMES = {
-	section: "py-16 bg-background bg-fixed bg-cover",
+	section: "mb-8 bg-background bg-fixed bg-cover",
 	section_container: "container mx-auto",
 	section_heading:
 		"mb-8 text-3xl font-bold text-slate-200 bg-frosted-glass w-max p-3 rounded-lg shadow-2xl",
@@ -15,7 +15,7 @@ const CLASSNAMES = {
 };
 
 function setValue(id, val) {
-	document.getElementById(id).innerHTML = val;
+	document.getElementById(id).innerText = val;
 }
 
 function setLink(id, val) {
@@ -25,7 +25,7 @@ function setLink(id, val) {
 // children will contain an array of elements per tile
 // children[0] = elements of tile 0
 // children[0][0] = first vertical element of tile 0
-function addSection(name, children = [], cols = 3) {
+function addSection(name, children = [], lgcols = 3, smcols = 2) {
 	var sec = document.createElement("section");
 	sec.className = CLASSNAMES["section"];
 	var container = document.createElement("div");
@@ -36,7 +36,11 @@ function addSection(name, children = [], cols = 3) {
 	container.appendChild(heading);
 
 	var contentGrid = document.createElement("div");
-	contentGrid.className = CLASSNAMES["grid"] + cols;
+	var gridClass = CLASSNAMES["grid"] + lgcols;
+	if(smcols != 2) {
+		gridClass = gridClass.replace("sm:grid-cols-2", "sm:grid-cols-" + smcols);
+	}
+	contentGrid.className = gridClass;
 
 	for (var tile of children) {
 		var gridTile = document.createElement("div");
@@ -136,10 +140,10 @@ function generateSkillsAndInterests(part) {
 	return [name, values];
 }
 
-function generateSection(name, data, renderer, cols = 3) {
+function generateSection(name, data, renderer, lgcols = 3, smcols = 2) {
 	document
 		.getElementById("val_body")
-		.appendChild(addSection(name, generateList(data, renderer), cols));
+		.appendChild(addSection(name, generateList(data, renderer), lgcols, smcols));
 }
 
 function populateContent() {
@@ -150,9 +154,9 @@ function populateContent() {
 	setValue("val_oneliner", projects["oneliner"]);
 	setValue("val_summary", projects["summary"]);
 
-	setLink("val_link_github", "https://github.com" + user["github"]);
-	setLink("val_link_linkedin", "https://linkedin.com/in" + user["linkedin"]);
-	setLink("val_link_mail", user["email"]);
+	setLink("val_link_github", "https://github.com/" + user["github"]);
+	setLink("val_link_linkedin", "https://linkedin.com/in/" + user["linkedin"]);
+	setLink("val_link_mail", "mailto:" + user["email"]);
 	setLink("val_link_resume", user["cv"]);
 
 	generateSection("Projects", projects["showcase"], generateProjectContent);
@@ -160,7 +164,7 @@ function populateContent() {
 		"Work Experience",
 		user["work_experience"],
 		generateWorkExperience,
-		1
+		1, 1
 	);
 	generateSection("Education", user["education"], generateEducation, 2);
 	generateSection("Other Projects", projects["others"], generateOtherProject);
@@ -168,7 +172,7 @@ function populateContent() {
 		"Skills & Interests",
 		user["skills_and_interests"],
 		generateSkillsAndInterests,
-		4
+		4, 2
 	);
 }
 
