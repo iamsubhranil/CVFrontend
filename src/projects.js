@@ -62,7 +62,8 @@ export const PROJECTS = [
 			{
 				"name": "NTP Clock",
 				"link": "https://github.com/iamsubhranil/NTPClock2",
-				"img": "./ntpclock.png",
+				"img": "https://raw.githubusercontent.com/iamsubhranil/NTPClock2/master/img/clock.png",
+                "img_alt": "Clock displaying current time",
 				"details": [
 					"Created an ESP32-based digital clock integrated with a dot matrix display",
 					"The codebase, developed in C++, features an NTP clock with a web-based configuration page",
