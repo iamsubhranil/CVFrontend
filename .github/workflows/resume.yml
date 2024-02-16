@@ -25,11 +25,11 @@ jobs:
                 path: resume.pdf
             - name: Get current date
               id: date
-              run: echo "::set-output name=date::$(date +'%Y.%m.%d_%H.%M.%S')"
+              run: echo "date=$(date +'%Y.%m.%d_%H.%M.%S')" >> $GITHUB_ENV
             - name: Release Resume
               uses: softprops/action-gh-release@v1
               with:
                 files: |
                     resume.pdf
-                body: "Resume generated at ${{ steps.date.outputs.date }}"
-                tag_name: ${{ steps.date.outputs.date }}
+                body: "Resume generated at ${{ env.date }}"
+                tag_name: ${{ env.date }}
