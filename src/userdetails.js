@@ -4,7 +4,7 @@ export const USER = {
 	"linkedin": "subhranilmukherjee",
 	"github": "iamsubhranil",
 	"phone": "+918240013107",
-    "cv": "https://github.com/iamsubhranil/CVFrontend/releases/latest/download/resume.pdf",
+	"cv": "https://github.com/iamsubhranil/CVFrontend/releases/latest/download/resume.pdf",
 	"work_experience": [
 		{
 			"company": "Tata Consultancy Services",
