@@ -24,7 +24,7 @@ jobs:
             - name: Generate screenshots
               run: |
                 npx http-server src -p 8000 &
-                node src/takeScreenshots.cjs
+                node src/takeScreenshot.cjs
                 convert -append *.png screenshot.png
             - name: Upload PDF and screenshots
               uses: actions/upload-artifact@v3
