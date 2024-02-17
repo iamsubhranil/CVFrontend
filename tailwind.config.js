@@ -5,7 +5,11 @@ module.exports = {
     backgroundImage: {
       background: "url('https://unsplash.com/photos/0tKc9vaYUAw/download')",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Nunito Sans", "sans-serif"]
+      }
+    },
   },
   plugins: [],
   safelist: [
