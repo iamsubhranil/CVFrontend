@@ -103,7 +103,7 @@ const LATEX_BEGIN = `
 \\newcommand{\\resumeItemListStart}{\\begin{itemize}}
 \\newcommand{\\resumeItemListEnd}{\\end{itemize}\\vspace{-5pt}}
 
-`
+`;
 
 function addSection(name, children) {
 	let text = "\\section{" + name + "}\n";
@@ -132,9 +132,13 @@ function createHeading(val, additional = null, isproject = false) {
 		"\t{" +
 		(isproject ? "\\textbf{" : "") +
 		val +
-		(isproject ? "}" : "") +
-		"}";
-	if (additional) {
+		(isproject ? "}" : "");
+	if (isproject && additional) {
+		name +=
+			" $|$ \\emph{" + additional.toString().replaceAll(",", ", ") + "}} {";
+	}
+	name += "}";
+	if (!isproject && additional) {
 		name += "{" + additional + "}";
 	}
 	name += "\n";
@@ -142,7 +146,7 @@ function createHeading(val, additional = null, isproject = false) {
 }
 
 function generateProjectContent(project) {
-	var name = createHeading(project["name"], " ", true);
+	var name = createHeading(project["name"], project["keywords"], true);
 	if (project["link"]) {
 		// name.href = project["link"];
 	}
@@ -187,11 +191,11 @@ function generateEducation(education) {
 }
 
 function generateOtherProject(project) {
-	var name = createHeading(project["name"], " ");
+	var name = createHeading(project["name"], project["keywords"], true);
 	if (project["link"]) {
 		// name.href = project["link"];
 	}
-	var details = createTextNode(project["desc"], "");
+	var details = createUList([project["desc"]], "");
 	return [name, details];
 }
 

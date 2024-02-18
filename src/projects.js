@@ -13,6 +13,7 @@ export const PROJECTS = [
 				"link": "https://github.com/iamsubhranil/Next",
 				"img": "https://raw.githubusercontent.com/iamsubhranil/Next/develop/img/renderer.png",
 				"img_alt": "A ray traced renderer written in Next",
+                "keywords": ["C", "C++", "Parser", "Compiler", "Interpreter", "LLVM", "JIT"],
 				"details": [
 					"Developed a high-performance, object-oriented programming language in C++",
 					"Outperformed Python and Lua in benchmark tests",
@@ -27,6 +28,7 @@ export const PROJECTS = [
 				"link": "https://github.com/iamsubhranil/The8085_v2",
 				"img": "https://raw.githubusercontent.com/iamsubhranil/The8085_v2/develop/img/img0.png",
 				"img_alt": "Running a program in the simulator",
+                "keywords": ["8085", "CPU", "Simulator", "Bytecode", "Virtual Machine"],
 				"details": [
 					"Developed a streamlined, high-performance 8085 simulator in pure C",
 					"The simulator provides full support for original 8085 opcodes",
@@ -40,6 +42,7 @@ export const PROJECTS = [
 				"link": "https://github.com/iamsubhranil/MyOS",
 				"img": "https://raw.githubusercontent.com/iamsubhranil/MyOS/master/img/img0.png",
 				"img_alt": "Booting the operating system",
+                "keywords": ["Paging", "Heap", "Bootloader", "x86", "Threads", "Scheduler"],
 				"details": [
 					"Designed and implemented an x86-based operating system using C++",
 					"Implemented interrupts using descriptor tables",
@@ -51,6 +54,7 @@ export const PROJECTS = [
 			{
 				"name": "Home Lab",
 				"img": "./homelab.png",
+                "keywords": ["Reverse Proxy", "SSO", "Grafana", "Prometheus", "Wireguard", "Jellyfin", "Home Assistant"],
 				"details": [
 					"Managing and orchestrating a diverse set of 30+ Docker containers, spanning health check, media management, home automation, and ad-blocking services",
 					"Configured a robust reverse proxy system with Nginx and Let's Encrypt for secure SSL connections",
@@ -64,6 +68,7 @@ export const PROJECTS = [
 				"link": "https://github.com/iamsubhranil/NTPClock2",
 				"img": "https://raw.githubusercontent.com/iamsubhranil/NTPClock2/master/img/clock.png",
                 "img_alt": "Clock displaying current time",
+                "keywords": ["ESP32", "BMP280", "PlatformIO", "Dot Matrix", "Embedded"],
 				"details": [
 					"Created an ESP32-based digital clock integrated with a dot matrix display",
 					"The codebase, developed in C++, features an NTP clock with a web-based configuration page",
@@ -77,6 +82,7 @@ export const PROJECTS = [
 				"link": "https://github.com/iamsubhranil/Renderer",
 				"img": "https://raw.githubusercontent.com/iamsubhranil/Renderer/cuda/img/cat.png",
 				"img_alt": "Rendering a cat using the renderer",
+                "keywords": ["Graphics", "SDL", "Rendering", "Projection", "CUDA"],
 				"details": [
 					"Developed a C++-based OBJ file renderer using SDL",
 					"Implemented controls for translating and rotating the rendered object within the window",
@@ -91,26 +97,31 @@ export const PROJECTS = [
 				"name": "OpenWRTSnapshot",
 				"link": "https://github.com/iamsubhranil/OpenWRTSnapshot",
 				"desc": "A collection of scripts to build, install, and automatically set up a customized version of OpenWRT",
-			},
+                "keywords": ["OpenWRT", "Bash", "Routing", "DNS", "Gateway"],
+            },
 			{
 				"name": "AutoCar",
 				"link": "https://github.com/iamsubhranil/AutoCar",
 				"desc": "A self-learned racing game powered by neural networks and a genetic algorithm written in Python",
+                "keywords": ["Python", "NumPy", "Genetic Algorithm", "Neural Networks"],
 			},
 			{
 				"name": "ThinkDifferent",
 				"link": "https://github.com/iamsubhranil/ThinkDifferent",
 				"desc": "A music player written in Java",
+                "keywords": ["Java", "JavaFX", "Music Player", "GUI"],
 			},
 			{
 				"name": "Alang",
 				"link": "https://github.com/iamsubhranil/Alang",
 				"desc": "An algorithmic programming language written in C",
+                "keywords": ["C", "Interpreter", "Parsers", "Virtual Machine"]
 			},
 			{
 				"name": "Scroller",
 				"link": "https://github.com/iamsubhranil/Scroller",
 				"desc": "An infinite scrolling-based image browser for Android",
+                "keywords": ["Kotlin", "Pixbay", "Android", "Infinite Scrolling"],
 			},
 		],
 	},
