@@ -112,10 +112,31 @@ function createTextNode(val) {
 	return node;
 }
 
+function generateNoticePeriodText(notice_period) {
+	var desigAdd = "";
+	if (notice_period) {
+		var noticePeriodEnd = new Date(notice_period["started"]);
+		noticePeriodEnd.setDate(
+			noticePeriodEnd.getDate() + parseInt(notice_period["duration"])
+		);
+		var today = new Date();
+
+		if (today < noticePeriodEnd) {
+			const diffInMills = noticePeriodEnd - today;
+			const diffDays = Math.ceil(diffInMills / (1000 * 60 * 60 * 24));
+			desigAdd = " (Notice Period: " + diffDays + " days remaining)";
+		}
+	}
+	return desigAdd;
+}
+
 function generateWorkExperience(work_exp) {
 	var company = createHeading(work_exp["company"]);
 	var desig = createTextNode(work_exp["designation"]);
-	var duration = createTextNode(work_exp["duration"]);
+	var duration = createTextNode(
+		work_exp["duration"] +
+			generateNoticePeriodText(work_exp["notice_period"])
+	);
 	var highlights = createUList(work_exp["highlights"]);
 	return [company, desig, duration, highlights];
 }

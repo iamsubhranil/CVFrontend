@@ -135,7 +135,9 @@ function createHeading(val, additional = null, isproject = false) {
 		(isproject ? "}" : "");
 	if (isproject && additional) {
 		name +=
-			" $|$ \\emph{" + additional.toString().replaceAll(",", ", ") + "}} {";
+			" $|$ \\emph{" +
+			additional.toString().replaceAll(",", ", ") +
+			"}} {";
 	}
 	name += "}";
 	if (!isproject && additional) {
@@ -174,9 +176,32 @@ function createTextNode(val1, val2) {
 	return "{" + val1 + "}{" + val2 + "}\n";
 }
 
+function generateNoticePeriodText(notice_period) {
+	var desigAdd = "";
+	if (notice_period) {
+		var noticePeriodEnd = new Date(notice_period["started"]);
+		noticePeriodEnd.setDate(
+			noticePeriodEnd.getDate() + parseInt(notice_period["duration"])
+		);
+		var today = new Date();
+
+		if (today < noticePeriodEnd) {
+			const diffInMills = noticePeriodEnd - today;
+			const diffDays = Math.ceil(diffInMills / (1000 * 60 * 60 * 24));
+			desigAdd = "(Notice Period: " + diffDays + " days remaining)";
+		}
+	}
+
+	return desigAdd;
+}
+
 function generateWorkExperience(work_exp) {
 	var company = createHeading(work_exp["company"], work_exp["duration"]);
-	var desig = createTextNode(work_exp["designation"], "");
+	var notice_period = work_exp["notice_period"];
+	var desig = createTextNode(
+		work_exp["designation"],
+		generateNoticePeriodText(notice_period)
+	);
 	var highlights = createUList(work_exp["highlights"]);
 	return [company, desig, highlights];
 }
