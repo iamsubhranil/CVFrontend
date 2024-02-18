@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .bg-frosted-glass {
-  background-color: rgba(0, 0, 0, 0.442);
-  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
 .blend-lighten {
   mix-blend-mode: lighten;
