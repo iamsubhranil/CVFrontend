@@ -26,6 +26,7 @@ jobs:
                 npx http-server src -p 8000 &
                 node src/takeScreenshot.cjs
                 convert -append *.png screenshot.png
+                convert part0.png -quality 50 -resize 1000x513 thumbnail.png
             - name: Upload PDF and screenshots
               uses: actions/upload-artifact@v3
               with:
@@ -33,6 +34,7 @@ jobs:
                 path: |
                   resume.pdf
                   screenshot.png
+                  thumbnail.png
             - name: Get current date
               id: date
               run: echo "date=$(date +'%Y.%m.%d_%H.%M.%S')" >> $GITHUB_ENV
@@ -42,5 +44,6 @@ jobs:
                 files: |
                     resume.pdf
                     screenshot.png
+                    thumbnail.png
                 body: "Artifacts generated at ${{ env.date }}"
                 tag_name: ${{ env.date }}
