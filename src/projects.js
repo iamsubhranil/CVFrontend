@@ -53,7 +53,7 @@ export const PROJECTS = [
 			},
 			{
 				"name": "Home Lab",
-				"img": "./homelab.png",
+				"img": "./homelab.jpg",
                 "keywords": ["Reverse Proxy", "SSO", "Grafana", "Prometheus", "Wireguard", "Jellyfin", "Home Assistant"],
 				"details": [
 					"Managing and orchestrating a diverse set of 30+ Docker containers, spanning health check, media management, home automation, and ad-blocking services",
