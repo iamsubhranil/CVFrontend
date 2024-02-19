@@ -66,7 +66,7 @@ export const PROJECTS = [
 			{
 				"name": "NTP Clock",
 				"link": "https://github.com/iamsubhranil/NTPClock2",
-				"img": "https://raw.githubusercontent.com/iamsubhranil/NTPClock2/master/img/clock.png",
+				"img": "https://raw.githubusercontent.com/iamsubhranil/NTPClock2/master/img/clock.jpg",
                 "img_alt": "Clock displaying current time",
                 "keywords": ["ESP32", "BMP280", "PlatformIO", "Dot Matrix", "Embedded"],
 				"details": [
