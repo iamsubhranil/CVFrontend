@@ -259,4 +259,4 @@ function prepare() {
 	populateContent();
 }
 
-window.onload = prepare;
+prepare();
