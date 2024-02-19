@@ -9,7 +9,7 @@ const fs = require("fs");
 	const url = "http://localhost:8000";
 	await page.goto(url, {waitUntil: "load"});
 
-	await page.setViewport({width: 2560, height: 1440});
+	await page.setViewport({width: 2100, height: 1440});
 	await page.waitForNetworkIdle();
 
 	// Get the page height
