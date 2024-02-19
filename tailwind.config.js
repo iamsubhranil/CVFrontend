@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     backgroundImage: {
-      background: "url('https://unsplash.com/photos/0tKc9vaYUAw/download')",
+      background: "url('https://unsplash.com/photos/0tKc9vaYUAw/download?auto=format')",
     },
     extend: {
       fontFamily: {
