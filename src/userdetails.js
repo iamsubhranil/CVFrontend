@@ -1,9 +1,12 @@
 export const USER = {
 	"name": "Subhranil Mukherjee",
+	"alt_name": "iamsubhranil",
+	"desc": "Passionate programmer focused on building complex systems",
 	"email": "me@subhranilmukherjee.com",
 	"linkedin": "subhranilmukherjee",
 	"github": "iamsubhranil",
 	"phone": "+918240013107",
+	"image": "https://github.com/iamsubhranil/CVFrontend/releases/latest/download/thumbnail.jpg",
 	"cv": "https://github.com/iamsubhranil/CVFrontend/releases/latest/download/resume.pdf",
 	"work_experience": [
 		{

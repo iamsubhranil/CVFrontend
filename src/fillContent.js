@@ -172,6 +172,27 @@ function generateSection(name, data, renderer, lgcols = 3, smcols = 2) {
 		);
 }
 
+function generateRichResult(name, alt_name, desc, github, linkedin, image) {
+	var content = `
+	{
+		"@context": "https://schema.org",
+		"@type": "ProfilePage",
+		"mainEntity": {
+		  "@type": "Person",
+		  "name": "${name}",
+		  "alternateName": "${alt_name}",
+		  "description": "${desc}",
+		  "image": "${image}",
+		  "sameAs": [
+			"https://github.com/${github}",
+			"https://linkedin.com/in/${linkedin}"
+		  ]
+		}
+	}
+	`;
+	document.getElementById("google_rich_result").textContent = content;
+}
+
 function populateContent() {
 	var projects = PROJECTS[0];
 	var user = USER;
@@ -184,6 +205,15 @@ function populateContent() {
 	setLink("val_link_linkedin", "https://linkedin.com/in/" + user["linkedin"]);
 	setLink("val_link_mail", "mailto:" + user["email"]);
 	setLink("val_link_resume", user["cv"]);
+
+	generateRichResult(
+		user["name"],
+		user["alt_name"],
+		user["desc"],
+		user["github"],
+		user["linkedin"],
+		user["image"]
+	);
 
 	generateSection("Projects", projects["showcase"], generateProjectContent);
 	generateSection(
