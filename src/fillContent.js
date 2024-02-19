@@ -2,7 +2,7 @@ import { PROJECTS } from "./projects.js";
 import { USER } from "./userdetails.js";
 
 const CLASSNAMES = {
-	section: "mb-8 bg-background bg-fixed bg-cover",
+	section: "mb-8",
 	section_container: "container mx-auto",
 	section_heading:
 		"mb-8 text-3xl font-bold text-slate-200 bg-frosted-glass w-max p-3 rounded-lg shadow-2xl",
