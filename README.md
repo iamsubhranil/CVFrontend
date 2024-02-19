@@ -14,4 +14,4 @@ Finally, there's another action ([deploy.yml](./.github/workflows/deploy.yml)) t
 deploy [index.html](./src/index.html) as an Azure static website on each commit.
 
 Currently the website looks like the following:
-![Website](https://github.com/iamsubhranil/CVFrontend/releases/latest/download/screenshot.png)
+![Website](https://github.com/iamsubhranil/CVFrontend/releases/latest/download/screenshot.jpg)

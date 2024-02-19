@@ -25,8 +25,8 @@ jobs:
               run: |
                 npx http-server src -p 8000 &
                 node src/takeScreenshot.cjs
-                convert -append *.png screenshot.png
-                convert part0.png -quality 50 -resize 1000x513 thumbnail.png
+                convert -append *.png screenshot.jpg
+                convert part0.png -resize 1200x750 thumbnail.jpg
             - name: Upload PDF and screenshots
               uses: actions/upload-artifact@v3
               with:
