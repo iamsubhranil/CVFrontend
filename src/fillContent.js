@@ -197,6 +197,28 @@ function populateContent() {
 	var projects = PROJECTS[0];
 	var user = USER;
 
+	setTimeout(() => {
+		const backgrounds = user["backgrounds"];
+		
+		var applied = new Array(backgrounds.length).fill(false);
+		backgrounds.forEach((val, idx, _) => {
+			const img = new Image();
+			img.count = idx;
+			img.onload = function () {
+				if (!applied[this.count]) {
+					document.body.style.backgroundImage =
+						"url(" + this.src + ")";
+					for (var j = 0; j <= this.count; j++) {
+						applied[j] = true;
+					}
+					console.log("here " + this.count + " " + this.src);
+				}
+			};
+			img.src = val;
+			console.log(img);
+		});
+	});
+
 	setValue("val_name", user["name"]);
 	setValue("val_oneliner", projects["oneliner"]);
 	setValue("val_summary", projects["summary"]);

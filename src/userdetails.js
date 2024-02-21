@@ -8,6 +8,8 @@ export const USER = {
 	"phone": "+918240013107",
 	"image": "https://github.com/iamsubhranil/CVFrontend/releases/latest/download/thumbnail.jpg",
 	"cv": "https://github.com/iamsubhranil/CVFrontend/releases/latest/download/resume.pdf",
+	"backgrounds": ["https://images.unsplash.com/photo-1569041032620-2d0ee0b7b673?ixlib=rb-4.0.3&q=10&fm=avif&crop=entropy&cs=srgb&blur=1000",
+					"https://images.unsplash.com/photo-1569041032620-2d0ee0b7b673?ixlib=rb-4.0.3&q=85&fm=avif&crop=entropy&cs=srgb"],
 	"work_experience": [
 		{
 			"company": "Tata Consultancy Services",

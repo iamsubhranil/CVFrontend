@@ -2,9 +2,6 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    backgroundImage: {
-      background: "url('https://unsplash.com/photos/0tKc9vaYUAw/download?auto=format')",
-    },
     extend: {
       fontFamily: {
         sans: ["Nunito Sans", "sans-serif"]

@@ -3,16 +3,20 @@
 @tailwind utilities;
 
 .bg-frosted-glass {
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(10px);
 }
 .blend-lighten {
-  mix-blend-mode: lighten;
+	mix-blend-mode: lighten;
 }
 .section-blend {
-  display: flex;
-  mix-blend-mode: lighten;
+	display: flex;
+	mix-blend-mode: lighten;
 }
 .section-blend > * {
-  flex: 1;
+	flex: 1;
+}
+
+.smooth-transition {
+	transition: background-image 1s ease-in-out;
 }
