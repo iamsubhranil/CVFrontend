@@ -211,11 +211,9 @@ function populateContent() {
 					for (var j = 0; j <= this.count; j++) {
 						applied[j] = true;
 					}
-					console.log("here " + this.count + " " + this.src);
 				}
 			};
 			img.src = val;
-			console.log(img);
 		});
 	});
 
