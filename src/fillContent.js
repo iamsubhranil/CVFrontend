@@ -14,7 +14,29 @@ const CLASSNAMES = {
 	img: "rounded-lg mb-4",
 };
 
+function inNodeJs() {
+	if (typeof window !== "undefined") {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+var DOM = null;
+
+async function initDOM() {
+	try {
+		const { JSDOM } = await import("jsdom");
+		const fs = await import("fs");
+		// Create a new DOM
+		DOM = new JSDOM(fs.readFileSync("src/index.html"));
+	} catch (error) {}
+}
+
 function getDocument() {
+	if (inNodeJs()) {
+		return DOM.window.document;
+	}
 	return document;
 }
 
@@ -24,7 +46,7 @@ function createElement(name, className = null, value = null, href = null) {
 		el.className = className;
 	}
 	if (value) {
-		el.innerText = value;
+		el.textContent = value;
 	}
 	if (href) {
 		el.href = href;
@@ -40,20 +62,28 @@ function setBackgroundImage(img) {
 	getDocument().body.style.backgroundImage = img;
 }
 
-function createImg(src, lazy = false, alt = null) {
+function createImg(src, lazy = false, alt = null, onload = null) {
 	var el = createElement("img", CLASSNAMES["img"]);
-	el.src = src;
 	if (lazy) {
 		el.loading = "lazy";
 	}
 	if (alt) {
 		el.alt = alt;
 	}
+	if (onload) {
+		el.onload = onload;
+	}
+	el.src = src;
 	return el;
 }
 
+function removeElement(id) {
+	var el = getElement(id);
+	el.parentNode.removeChild(el);
+}
+
 function setValue(id, val) {
-	getElement(id).innerText = val;
+	getElement(id).textContent = val;
 }
 
 function setLink(id, val) {
@@ -212,25 +242,28 @@ function populateContent() {
 	var projects = PROJECTS[0];
 	var user = USER;
 
-	setTimeout(() => {
-		const backgrounds = user["backgrounds"];
-
-		var applied = new Array(backgrounds.length).fill(false);
-		backgrounds.forEach((val, idx, _) => {
-			const img = new Image();
-			img.count = idx;
-			img.onload = function () {
-				if (!applied[this.count]) {
-					setBackgroundImage(
-						"url(" + this.src + ")");
-					for (var j = 0; j <= this.count; j++) {
-						applied[j] = true;
+	const backgrounds = user["backgrounds"];
+	var script = createElement("script");
+	script.innerHTML = `
+			var appliedBackgrounds = new Array(${backgrounds.length}).fill(false);
+			function applyBackground(idx, link) {
+				if(!appliedBackgrounds[idx]) {
+					document.body.style.backgroundImage = "url(" + link + ")";
+					for (var j = 0; j <= idx; j++) {
+						appliedBackgrounds[j] = true;
 					}
 				}
-			};
-			img.src = val;
-		});
-	});
+			}
+		`;
+	getDocument().head.appendChild(script);
+	var idx = 0;
+	for (var image of backgrounds) {
+		var img = createImg(image, false, null, null);
+		img.setAttribute("onload", `applyBackground(${idx}, this.src);`);
+		img.style.display = "none";
+		getDocument().body.appendChild(img);
+		idx += 1;
+	}
 
 	setValue("val_name", user["name"]);
 	setValue("val_oneliner", projects["oneliner"]);
@@ -290,8 +323,18 @@ function hit() {
 }
 
 function prepare() {
-	hit();
-	populateContent();
+	if (inNodeJs()) {
+		initDOM().then((_) => {
+			populateContent();
+			removeElement("js_fillContent");
+			removeElement("js_projects");
+			removeElement("js_userdetails");
+			console.log(DOM.serialize());
+		});
+	} else {
+		hit();
+		populateContent();
+	}
 }
 
 prepare();
