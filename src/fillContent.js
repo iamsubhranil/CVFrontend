@@ -245,12 +245,12 @@ function populateContent() {
 	const backgrounds = user["backgrounds"];
 	var script = createElement("script");
 	script.innerHTML = `
-			var appliedBackgrounds = new Array(${backgrounds.length}).fill(false);
-			function applyBackground(idx, link) {
-				if(!appliedBackgrounds[idx]) {
+			window.appliedBackgrounds = new Array(${backgrounds.length}).fill(false);
+			window.applyBackground = function(idx, link) {
+				if(!this.appliedBackgrounds[idx]) {
 					document.body.style.backgroundImage = "url(" + link + ")";
 					for (var j = 0; j <= idx; j++) {
-						appliedBackgrounds[j] = true;
+						this.appliedBackgrounds[j] = true;
 					}
 				}
 			}
@@ -259,7 +259,7 @@ function populateContent() {
 	var idx = 0;
 	for (var image of backgrounds) {
 		var img = createImg(image, false, null, null);
-		img.setAttribute("onload", `applyBackground(${idx}, this.src);`);
+		img.setAttribute("onload", `window.applyBackground(${idx}, this.src);`);
 		img.style.display = "none";
 		getDocument().body.appendChild(img);
 		idx += 1;
