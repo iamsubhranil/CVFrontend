@@ -14,28 +14,61 @@ const CLASSNAMES = {
 	img: "rounded-lg mb-4",
 };
 
+function getDocument() {
+	return document;
+}
+
+function createElement(name, className = null, value = null, href = null) {
+	var el = getDocument().createElement(name);
+	if (className) {
+		el.className = className;
+	}
+	if (value) {
+		el.innerText = value;
+	}
+	if (href) {
+		el.href = href;
+	}
+	return el;
+}
+
+function getElement(id) {
+	return getDocument().getElementById(id);
+}
+
+function setBackgroundImage(img) {
+	getDocument().body.style.backgroundImage = img;
+}
+
+function createImg(src, lazy = false, alt = null) {
+	var el = createElement("img", CLASSNAMES["img"]);
+	el.src = src;
+	if (lazy) {
+		el.loading = "lazy";
+	}
+	if (alt) {
+		el.alt = alt;
+	}
+	return el;
+}
+
 function setValue(id, val) {
-	document.getElementById(id).innerText = val;
+	getElement(id).innerText = val;
 }
 
 function setLink(id, val) {
-	document.getElementById(id).href = val;
+	getElement(id).href = val;
 }
 
 // children will contain an array of elements per tile
 // children[0] = elements of tile 0
 // children[0][0] = first vertical element of tile 0
 function addSection(name, children = [], lgcols = 3, smcols = 2) {
-	var sec = document.createElement("section");
-	sec.className = CLASSNAMES["section"];
-	var container = document.createElement("div");
-	container.className = CLASSNAMES["section_container"];
-	var heading = document.createElement("h2");
-	heading.className = CLASSNAMES["section_heading"];
-	heading.innerHTML = name;
+	var sec = createElement("section", CLASSNAMES["section"]);
+	var container = createElement("div", CLASSNAMES["section_container"]);
+	var heading = createElement("h2", CLASSNAMES["section_heading"], name);
 	container.appendChild(heading);
 
-	var contentGrid = document.createElement("div");
 	var gridClass = CLASSNAMES["grid"] + lgcols;
 	if (smcols != 2) {
 		gridClass = gridClass.replace(
@@ -43,11 +76,10 @@ function addSection(name, children = [], lgcols = 3, smcols = 2) {
 			"sm:grid-cols-" + smcols
 		);
 	}
-	contentGrid.className = gridClass;
+	var contentGrid = createElement("div", gridClass);
 
 	for (var tile of children) {
-		var gridTile = document.createElement("div");
-		gridTile.className = CLASSNAMES["grid_tile"];
+		var gridTile = createElement("div", CLASSNAMES["grid_tile"]);
 
 		for (var c of tile) {
 			gridTile.appendChild(c);
@@ -64,36 +96,26 @@ function addSection(name, children = [], lgcols = 3, smcols = 2) {
 }
 
 function createUList(vals) {
-	var details = document.createElement("ul");
-	details.className = CLASSNAMES["ul"];
+	var details = createElement("ul", CLASSNAMES["ul"]);
 	for (var d of vals) {
-		var line = document.createElement("li");
-		line.className = CLASSNAMES["text"];
-		line.innerHTML = d;
+		var line = createElement("li", CLASSNAMES["text"], d);
 		details.appendChild(line);
 	}
 	return details;
 }
 
-function createHeading(val) {
-	var name = document.createElement("a");
-	name.className = CLASSNAMES["grid_heading"];
-	name.innerHTML = val;
+function createHeading(val, href = null) {
+	var name = createElement("a", CLASSNAMES["grid_heading"], val, href);
 	return name;
 }
 
 function generateProjectContent(project) {
-	var img = document.createElement("img");
-	img.className = CLASSNAMES["img"];
-	img.loading = "lazy";
-	img.src = project["img"];
-	img.alt = project["img_alt"];
-	var name = createHeading(project["name"]);
-	if (project["link"]) {
-		name.href = project["link"];
-	}
+	var name = createHeading(project["name"], project["link"]);
 	var details = createUList(project["details"]);
-	if (project["img"]) return [name, img, details];
+	if (project["img"]) {
+		var img = createImg(project["img"], true, project["img_alt"]);
+		return [name, img, details];
+	}
 	return [name, details];
 }
 
@@ -106,9 +128,7 @@ function generateList(projects, func) {
 }
 
 function createTextNode(val) {
-	var node = document.createElement("h3");
-	node.className = CLASSNAMES["text"];
-	node.innerHTML = val;
+	var node = createElement("h3", CLASSNAMES["text"], val);
 	return node;
 }
 
@@ -150,10 +170,7 @@ function generateEducation(education) {
 }
 
 function generateOtherProject(project) {
-	var name = createHeading(project["name"]);
-	if (project["link"]) {
-		name.href = project["link"];
-	}
+	var name = createHeading(project["name"], project["link"]);
 	var desc = createTextNode(project["desc"]);
 	return [name, desc];
 }
@@ -165,11 +182,9 @@ function generateSkillsAndInterests(part) {
 }
 
 function generateSection(name, data, renderer, lgcols = 3, smcols = 2) {
-	document
-		.getElementById("populate")
-		.appendChild(
-			addSection(name, generateList(data, renderer), lgcols, smcols)
-		);
+	getElement("populate").appendChild(
+		addSection(name, generateList(data, renderer), lgcols, smcols)
+	);
 }
 
 function generateRichResult(name, alt_name, desc, github, linkedin, image) {
@@ -190,7 +205,7 @@ function generateRichResult(name, alt_name, desc, github, linkedin, image) {
 		}
 	}
 	`;
-	document.getElementById("google_rich_result").textContent = content;
+	setValue("google_rich_result", content);
 }
 
 function populateContent() {
@@ -199,15 +214,15 @@ function populateContent() {
 
 	setTimeout(() => {
 		const backgrounds = user["backgrounds"];
-		
+
 		var applied = new Array(backgrounds.length).fill(false);
 		backgrounds.forEach((val, idx, _) => {
 			const img = new Image();
 			img.count = idx;
 			img.onload = function () {
 				if (!applied[this.count]) {
-					document.body.style.backgroundImage =
-						"url(" + this.src + ")";
+					setBackgroundImage(
+						"url(" + this.src + ")");
 					for (var j = 0; j <= this.count; j++) {
 						applied[j] = true;
 					}
@@ -256,7 +271,7 @@ function populateContent() {
 
 function hit() {
 	// Set the ID of the HTML element that will display the visitor count
-	var visitorCountElement = document.getElementById("val_view_count");
+	var visitorCountElement = getElement("val_view_count");
 
 	// Get the current visitor count from your server
 	var xhr = new XMLHttpRequest();
