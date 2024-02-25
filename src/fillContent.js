@@ -1,5 +1,6 @@
 import { PROJECTS } from "./projects.js";
 import { USER } from "./userdetails.js";
+import { IMAGEMAP } from "./resources.js";
 
 const CLASSNAMES = {
 	section: "mb-8",
@@ -58,8 +59,11 @@ function getElement(id) {
 	return getDocument().getElementById(id);
 }
 
-function setBackgroundImage(img) {
-	getDocument().body.style.backgroundImage = img;
+function getImageURL(img) {
+	if(img in IMAGEMAP) {
+		return IMAGEMAP[img].file;
+	}
+	return img;
 }
 
 function createImg(src, lazy = false, alt = null, onload = null) {
@@ -73,7 +77,7 @@ function createImg(src, lazy = false, alt = null, onload = null) {
 	if (onload) {
 		el.onload = onload;
 	}
-	el.src = src;
+	el.src = getImageURL(src);
 	return el;
 }
 
