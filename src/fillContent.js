@@ -60,7 +60,7 @@ function getElement(id) {
 }
 
 function getImageURL(img) {
-	if(img in IMAGEMAP) {
+	if (img in IMAGEMAP) {
 		return IMAGEMAP[img].file;
 	}
 	return img;
@@ -77,7 +77,11 @@ function createImg(src, lazy = false, alt = null, onload = null) {
 	if (onload) {
 		el.onload = onload;
 	}
-	el.src = getImageURL(src);
+	const url = getImageURL(src);
+	el.src = url;
+	if (url != src) {
+		el.id = url;
+	}
 	return el;
 }
 
@@ -249,12 +253,12 @@ function populateContent() {
 	const backgrounds = user["backgrounds"];
 	var script = createElement("script");
 	script.innerHTML = `
-			window.appliedBackgrounds = new Array(${backgrounds.length}).fill(false);
-			window.applyBackground = function(idx, link) {
-				if(!this.appliedBackgrounds[idx]) {
+			window.cvAppliedBackgrounds = new Array(${backgrounds.length}).fill(false);
+			window.cvApplyBackground = function(idx, link) {
+				if(!this.cvAppliedBackgrounds[idx]) {
 					document.body.style.backgroundImage = "url(" + link + ")";
 					for (var j = 0; j <= idx; j++) {
-						this.appliedBackgrounds[j] = true;
+						this.cvAppliedBackgrounds[j] = true;
 					}
 				}
 			}
@@ -263,7 +267,10 @@ function populateContent() {
 	var idx = 0;
 	for (var image of backgrounds) {
 		var img = createImg(image, false, null, null);
-		img.setAttribute("onload", `window.applyBackground(${idx}, this.src);`);
+		img.setAttribute(
+			"onload",
+			`window.cvApplyBackground(${idx}, this.src);`
+		);
 		img.style.display = "none";
 		getDocument().body.appendChild(img);
 		idx += 1;
