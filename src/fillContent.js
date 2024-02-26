@@ -255,7 +255,8 @@ function populateContent() {
 	script.innerHTML = `
 			window.cvAppliedBackgrounds = new Array(${backgrounds.length}).fill(false);
 			window.cvApplyBackground = function(idx, link) {
-				if(!this.cvAppliedBackgrounds[idx]) {
+				if(!this.cvAppliedBackgrounds[idx] ||
+						idx == window.cvAppliedBackgrounds.length - 1) {
 					document.body.style.backgroundImage = "url(" + link + ")";
 					for (var j = 0; j <= idx; j++) {
 						this.cvAppliedBackgrounds[j] = true;
@@ -340,6 +341,7 @@ function prepare() {
 			removeElement("js_fillContent");
 			removeElement("js_projects");
 			removeElement("js_userdetails");
+			removeElement("js_resources");
 			console.log(DOM.serialize());
 		});
 	} else {
