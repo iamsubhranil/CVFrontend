@@ -16,14 +16,14 @@ export const USER = {
 			"designation": "Systems Engineer",
 			"duration": "August 2021 - February 2024",
 			"highlights": [
-				"Managed more than 10000 users and devices across Azure AD, IBM ISIM and a few other IGA tools",
+				"Managed more than 50000 users and devices across Azure AD, IBM ISIM and a few other IGA tools",
 				"Provisioned RSA authentication, temporary/permanent local administrative rights to devices",
-				"Authored and documented 10+ automations in Powershell for mass AD modifications, increasing work efficiency more than 50%",
+				"Authored and documented 20+ automations in Powershell for mass AD modifications, increasing work efficiency more than 50%",
 				"Handled access management using AD groups, solving approximately 20 AD related issues regularly",
 				"Took part in 3 multi-faceted high priority incidents as team representative and provided analytical and pertinent insights",
 				"Helped onboard 4 new members of the team by arranging multiple knowledge transitions, increasing team size by 40%",
 				"Created diagrams, 5+ SOPs for new scopes of work and other documentation",
-				"Supported system users, educating employees on troubleshooting and problem solving protocols",
+				"Extended existing tools by writing backend code in JavaScript/Powershell implementing new workflows"
 			],
 		},
 	],
