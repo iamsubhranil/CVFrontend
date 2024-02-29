@@ -14,11 +14,7 @@ export const USER = {
 		{
 			"company": "Tata Consultancy Services",
 			"designation": "Systems Engineer",
-			"duration": "Aug 2021 - April 2024",
-			"notice_period": {
-				"started": "January 10, 2024",
-				"duration": "90"
-			},
+			"duration": "August 2021 - February 2024",
 			"highlights": [
 				"Managed more than 10000 users and devices across Azure AD, IBM ISIM and a few other IGA tools",
 				"Provisioned RSA authentication, temporary/permanent local administrative rights to devices",
