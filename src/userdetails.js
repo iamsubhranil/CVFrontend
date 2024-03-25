@@ -26,6 +26,14 @@ export const USER = {
 				"Supported system users, educating employees on troubleshooting and problem solving protocols",
 			],
 		},
+		{
+			"company": "NVIDIA",
+			"designation": "Compiler Engineer",
+			"duration": "March 2024 - Present",
+			"highlights": [
+				"Working on implementing codegen optimizations for various existing and next-gen products."
+			]
+		}
 	],
 	"education": [
 		{
