@@ -300,7 +300,7 @@ function populateContent() {
 		"Work Experience",
 		user["work_experience"],
 		generateWorkExperience,
-		1,
+		2,
 		1
 	);
 	generateSection("Education", user["education"], generateEducation, 2);
