@@ -293,7 +293,7 @@ function populateContent() {
 	console.log(
 		generateSection(
 			"Work Experience",
-			user["work_experience"],
+			user["work_experience"].reverse(),
 			generateWorkExperience
 		)
 	);
