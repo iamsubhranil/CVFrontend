@@ -28,7 +28,7 @@ jobs:
                 convert -append *.png screenshot.jpg
                 convert part0.png -resize 1200x750 thumbnail.jpg
             - name: Upload PDF and screenshots
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                 name: ResumeAndScreenshot
                 path: |
@@ -39,7 +39,7 @@ jobs:
               id: date
               run: echo "date=$(date +'%Y.%m.%d_%H.%M.%S')" >> $GITHUB_ENV
             - name: Release PDF and screenshots
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@v2
               with:
                 files: |
                     resume.pdf
