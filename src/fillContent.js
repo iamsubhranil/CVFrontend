@@ -283,17 +283,14 @@ function populateContent() {
 			window.cvMaybeRefreshImage = function(id, link, lastModified, etag) {
 				fetch(link, {method: 'HEAD'})
 					.then(response => {
-						console.log("Response: ", response);
 						const headers = response.headers;
-						console.log("Link: ", link, "Headers: ", headers);
 						const currentLastModified = headers.get("last-modified") || "";
 						const currentEtag = headers.get("etag") || "";
-						console.log("Current State: ", currentLastModified, lastModified, currentEtag, etag);
 						if(currentLastModified != lastModified || currentEtag != etag) {
 							console.log("Updating image ", id, " to ", link);
 							var img = document.createElement("img");
 							img.style.display = "none";
-							img.setAttribute("onload", "console.log('setting ', '" + id + "');document.getElementById('" + id + "').src=this.src");
+							img.setAttribute("onload", "document.getElementById('" + id + "').src=this.src");
 							img.src = link;
 							document.body.appendChild(img);
 						}
@@ -303,7 +300,6 @@ function populateContent() {
 			window.cvImageMap = ${JSON.stringify(IMAGEMAP)};
 			for(const imageLink in window.cvImageMap) {
 				const obj = window.cvImageMap[imageLink];
-				console.log("Adding lazy image update for ", obj);
 				setTimeout(() => {
 					window.cvMaybeRefreshImage(obj.file, imageLink, obj.lastModified, obj.etag);
 				});
