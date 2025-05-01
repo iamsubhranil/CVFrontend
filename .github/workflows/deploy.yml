@@ -9,7 +9,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Install packages
+        run: |
+          sudo apt-get install nodejs npm
+          npm install
+      - name: Generate caching artifacts
+        run: |
+          npx http-server src -p 8000 &
+          node src/takeScreenshot.cjs
+      - name: Remove unused files
+        run: |
+          rm src/.prettierrc
+          rm src/generateLatex.js
+          rm src/takeScreenshot.cjs
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
