@@ -39,9 +39,10 @@ function createHashFromURL(url) {
 			}
 			const url = response.url();
 			const content = await response.buffer();
+			const extension = contentType.split("/")[1];
 
 			// Save the image
-			const fileName = createHashFromURL(url);
+			const fileName = createHashFromURL(url) + "." + extension;
 			fs.writeFileSync(RESOURCE_PATH + fileName, content);
 			imageMap[url] = {
 				file: RELATIVE_RESOURCE_PATH + fileName,
