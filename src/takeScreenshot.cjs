@@ -99,6 +99,39 @@ function createHashFromURL(url) {
 		screenshots.push(screenshot);
 	}
 
+	// Find out the element corresponding to each image in the imageMap
+	for (const [url, data] of Object.entries(imageMap)) {
+		const element = await page.evaluateHandle((url) => {
+			return document.querySelector(`img[src="${url}"]`);
+		}, url);
+
+		if (element) {
+			const boundingBox = await element.boundingBox();
+			console.log(
+				`Element found for ${url} in bounding box:`,
+				boundingBox
+			);
+			if (boundingBox) {
+				const height = Math.ceil(boundingBox.height);
+				const width = Math.ceil(boundingBox.width);
+
+				// Resize the original image to fit the bounding box
+				const fileName = data.file;
+				const convertedFile = fileName.split(".")[0] + ".avif";
+				const originalImage = fs.readFileSync(SOURCE_PATH + fileName);
+
+				const sharp = require("sharp");
+				await sharp(originalImage)
+					.resize(width, height)
+					.toFile(SOURCE_PATH + convertedFile);
+
+				data.file = convertedFile;
+				console.log("Saved resized image:", data.file);
+				fs.rmSync(SOURCE_PATH + fileName, { force: true });
+			}
+		}
+	}
+
 	// Close the browser
 	await browser.close();
 
