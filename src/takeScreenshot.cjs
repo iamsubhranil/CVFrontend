@@ -15,7 +15,9 @@ function createHashFromURL(url) {
 	fs.rmSync(RESOURCE_PATH, { recursive: true, force: true });
 	fs.mkdirSync(RESOURCE_PATH);
 
-	const browser = await puppeteer.launch();
+	const browser = await puppeteer.launch({
+		args: ["--no-sandbox", "--disable-setuid-sandbox"],
+	});
 	const page = await browser.newPage();
 
 	var imageMap = {};
@@ -39,7 +41,7 @@ function createHashFromURL(url) {
 			imageMap[url] = {
 				file: fileName,
 				lastModified: headers["last-modified"],
-				etag: headers["etag"]
+				etag: headers["etag"],
 			};
 
 			console.log(`Image saved: ${fileName}: ${url}`);
