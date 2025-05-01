@@ -26,7 +26,7 @@ jobs:
         run: |
           rm src/.prettierrc
           rm src/fillContent.js
-          rm src/userDetails.js
+          rm src/userdetails.js
           rm src/resources.js
           rm src/projects.js
           rm src/generateLatex.js
