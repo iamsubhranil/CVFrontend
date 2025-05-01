@@ -298,9 +298,9 @@ function populateContent() {
 	generateSection("Projects", projects["showcase"], generateProjectContent);
 	generateSection(
 		"Work Experience",
-		user["work_experience"],
+		user["work_experience"].reverse(),
 		generateWorkExperience,
-		1,
+		2,
 		1
 	);
 	generateSection("Education", user["education"], generateEducation, 2);
