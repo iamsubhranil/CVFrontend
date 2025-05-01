@@ -25,6 +25,7 @@ jobs:
       - name: Remove unused files
         run: |
           rm src/.prettierrc
+          rm src/input.css
           rm src/fillContent.js
           rm src/userdetails.js
           rm src/resources.js
