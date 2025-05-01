@@ -277,6 +277,41 @@ function populateContent() {
 		idx += 1;
 	}
 
+	if (Object.keys(IMAGEMAP).length > 0) {
+		var lazyImageUpdate = createElement("script");
+		lazyImageUpdate.innerHTML = `
+			window.cvMaybeRefreshImage = function(id, link, lastModified, etag) {
+				fetch(link, {method: 'HEAD'})
+					.then(response => {
+						console.log("Response: ", response);
+						const headers = response.headers;
+						console.log("Link: ", link, "Headers: ", headers);
+						const currentLastModified = headers.get("last-modified") || "";
+						const currentEtag = headers.get("etag") || "";
+						console.log("Current State: ", currentLastModified, lastModified, currentEtag, etag);
+						if(currentLastModified != lastModified || currentEtag != etag) {
+							console.log("Updating image ", id, " to ", link);
+							var img = document.createElement("img");
+							img.style.display = "none";
+							img.setAttribute("onload", "console.log('setting ', '" + id + "');document.getElementById('" + id + "').src=this.src");
+							img.src = link;
+							document.body.appendChild(img);
+						}
+					})
+					.catch(err => console.error('Error making HEAD request to', link, ':', err));
+			};
+			window.cvImageMap = ${JSON.stringify(IMAGEMAP)};
+			for(const imageLink in window.cvImageMap) {
+				const obj = window.cvImageMap[imageLink];
+				console.log("Adding lazy image update for ", obj);
+				setTimeout(() => {
+					window.cvMaybeRefreshImage(obj.file, imageLink, obj.lastModified, obj.etag);
+				});
+			}
+		`;
+		getDocument().head.appendChild(lazyImageUpdate);
+	}
+
 	setValue("val_name", user["name"]);
 	setValue("val_oneliner", projects["oneliner"]);
 	setValue("val_summary", projects["summary"]);

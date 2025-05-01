@@ -2,7 +2,9 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 const crypto = require("crypto");
 
-const RESOURCE_PATH = "dist/";
+const SOURCE_PATH = "src/";
+const RELATIVE_RESOURCE_PATH = "dist/";
+const RESOURCE_PATH = SOURCE_PATH + RELATIVE_RESOURCE_PATH;
 
 function createHashFromURL(url) {
 	const hash = crypto.createHash("sha256");
@@ -14,6 +16,10 @@ function createHashFromURL(url) {
 (async () => {
 	fs.rmSync(RESOURCE_PATH, { recursive: true, force: true });
 	fs.mkdirSync(RESOURCE_PATH);
+	fs.writeFileSync(
+		SOURCE_PATH + "resources.js",
+		"export const IMAGEMAP = {};"
+	);
 
 	const browser = await puppeteer.launch({
 		args: ["--no-sandbox", "--disable-setuid-sandbox"],
@@ -37,14 +43,15 @@ function createHashFromURL(url) {
 			// Save the image
 			const fileName = createHashFromURL(url);
 			fs.writeFileSync(RESOURCE_PATH + fileName, content);
-
 			imageMap[url] = {
-				file: fileName,
-				lastModified: headers["last-modified"],
-				etag: headers["etag"],
+				file: RELATIVE_RESOURCE_PATH + fileName,
+				lastModified: headers["last-modified"] || "",
+				etag: headers["etag"] || "",
 			};
 
-			console.log(`Image saved: ${fileName}: ${url}`);
+			console.log(
+				`Image saved: ${fileName}: ${url} ${headers["last-modified"]} ${headers["etag"]}`
+			);
 		}
 	});
 
@@ -98,8 +105,9 @@ function createHashFromURL(url) {
 	screenshots.forEach((screenshot, index) => {
 		fs.writeFileSync(`part${index}.png`, screenshot);
 	});
+	console.log(JSON.stringify(imageMap));
 	fs.writeFileSync(
-		RESOURCE_PATH + "resources.js",
+		SOURCE_PATH + "resources.js",
 		"export const IMAGEMAP = " + JSON.stringify(imageMap) + ";"
 	);
 })();
