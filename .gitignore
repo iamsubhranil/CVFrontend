@@ -4,3 +4,4 @@ node_modules/
 *.jpg
 dist/
 src/resources.js
+src/index2.html

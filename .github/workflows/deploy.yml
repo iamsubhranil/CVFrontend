@@ -18,9 +18,17 @@ jobs:
         run: |
           npx http-server src -p 8000 &
           node src/takeScreenshot.cjs
+      - name: Prerender HTML
+        run: |
+          node src/fillContent.js > src/index2.html
+          mv src/index2.html src/index.html
       - name: Remove unused files
         run: |
           rm src/.prettierrc
+          rm src/fillContent.js
+          rm src/userDetails.js
+          rm src/resources.js
+          rm src/projects.js
           rm src/generateLatex.js
           rm src/takeScreenshot.cjs
       - uses: azure/login@v1

@@ -287,10 +287,9 @@ function populateContent() {
 						const currentLastModified = headers.get("last-modified") || "";
 						const currentEtag = headers.get("etag") || "";
 						if(currentLastModified != lastModified || currentEtag != etag) {
-							console.log("Updating image ", id, " to ", link);
 							var img = document.createElement("img");
 							img.style.display = "none";
-							img.setAttribute("onload", "document.getElementById('" + id + "').src=this.src");
+							img.setAttribute("onload", "document.getElementById('" + id + "').src = this.src");
 							img.src = link;
 							document.body.appendChild(img);
 						}
@@ -298,11 +297,13 @@ function populateContent() {
 					.catch(err => console.error('Error making HEAD request to', link, ':', err));
 			};
 			window.cvImageMap = ${JSON.stringify(IMAGEMAP)};
-			for(const imageLink in window.cvImageMap) {
-				const obj = window.cvImageMap[imageLink];
-				setTimeout(() => {
-					window.cvMaybeRefreshImage(obj.file, imageLink, obj.lastModified, obj.etag);
-				});
+			if (typeof window !== "undefined") {
+				for(const imageLink in window.cvImageMap) {
+					const obj = window.cvImageMap[imageLink];
+					setTimeout(() => {
+						window.cvMaybeRefreshImage(obj.file, imageLink, obj.lastModified, obj.etag);
+					});
+				}
 			}
 		`;
 		getDocument().head.appendChild(lazyImageUpdate);
@@ -343,26 +344,30 @@ function populateContent() {
 		4,
 		2
 	);
-}
 
-function hit() {
-	// Set the ID of the HTML element that will display the visitor count
-	var visitorCountElement = getElement("val_view_count");
+	var fireHit = createElement("script");
+	fireHit.innerHTML = `
+		window.onload = function() {		
+			// Set the ID of the HTML element that will display the visitor count
+			var visitorCountElement = document.getElementById("val_view_count");
 
-	// Get the current visitor count from your server
-	var xhr = new XMLHttpRequest();
-	xhr.open(
-		"GET",
-		"https://resume-visitor-count.azurewebsites.net/api/",
-		true
-	);
-	xhr.onload = function () {
-		if (xhr.status === 200) {
-			// Display the visitor count on the web page
-			visitorCountElement.textContent = "Page Views: " + xhr.responseText;
+			// Get the current visitor count from your server
+			var xhr = new XMLHttpRequest();
+			xhr.open(
+				"GET",
+				"https://resume-visitor-count.azurewebsites.net/api/",
+				true
+			);
+			xhr.onload = function () {
+				if (xhr.status === 200) {
+					// Display the visitor count on the web page
+					visitorCountElement.textContent = "Page Views: " + xhr.responseText;
+				}
+			};
+			xhr.send();
 		}
-	};
-	xhr.send();
+	`;
+	getDocument().head.appendChild(fireHit);
 }
 
 function prepare() {
@@ -376,7 +381,6 @@ function prepare() {
 			console.log(DOM.serialize());
 		});
 	} else {
-		hit();
 		populateContent();
 	}
 }
