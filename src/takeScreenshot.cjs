@@ -108,6 +108,6 @@ function createHashFromURL(url) {
 	console.log(JSON.stringify(imageMap));
 	fs.writeFileSync(
 		SOURCE_PATH + "resources.js",
-		"export const IMAGEMAP = " + JSON.stringify(imageMap) + ";"
+		"export const IMAGEMAP = " + JSON.stringify(imageMap, null, 4) + ";"
 	);
 })();
