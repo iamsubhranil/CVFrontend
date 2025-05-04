@@ -33,7 +33,7 @@ jobs:
           node src/takeScreenshot.cjs nocache
           convert -append part*.png screenshot_new.png
           rm -rf part*.png
-          result=$(compare -metric RMSE screenshot_old.png screenshot_new.png diff.png)
+          result=$(compare -metric RMSE screenshot_old.png screenshot_new.png diff.png 2>&1)
           echo "Difference: $result"
           if [ "$result" -ne '0 (0)' ]; then
             echo "Images do not match! Failing the job."
