@@ -38,7 +38,7 @@ jobs:
           rm src/resources.js
           rm src/generateLatex.js
           rm src/takeScreenshot.cjs
-          rm src/postprocess.js
+          rm src/postprocess.cjs
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
