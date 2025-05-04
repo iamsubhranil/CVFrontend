@@ -18,10 +18,9 @@ jobs:
           npm install
       - name: Generate caching artifacts
         run: |
-          npx http-server src -p 8000 &
-          pid=$!
+          npx live-server src --port=8000 &
+          sleep 5
           node src/takeScreenshot.cjs
-          kill $pid
           convert -append part*.png screenshot_old.png
           rm -rf part*.png
       - name: Prerender and minify HTML
@@ -32,10 +31,8 @@ jobs:
           popd
       - name: Generate and compare screenshot
         run: |
-          npx http-server src -p 8000 &
-          pid=$!
+          sleep 5
           node src/takeScreenshot.cjs nocache
-          kill $pid
           convert -append part*.png screenshot_new.png
           rm -rf part*.png
           result=$(compare -metric RMSE screenshot_old.png screenshot_new.png diff.png 2>&1)
