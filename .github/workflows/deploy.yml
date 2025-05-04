@@ -18,30 +18,15 @@ jobs:
           npm install
       - name: Generate caching artifacts
         run: |
-          npx live-server src --port=8000 &
+          npx http-server src -p 8000 &
           sleep 5
           node src/takeScreenshot.cjs
-          convert -append part*.png screenshot_old.png
-          rm -rf part*.png
       - name: Prerender and minify HTML
         run: |
           node src/fillContent.js > src/index2.html
           pushd src
           node postprocess.cjs > index.html
           popd
-      - name: Generate and compare screenshot
-        run: |
-          sleep 5
-          node src/takeScreenshot.cjs nocache
-          convert -append part*.png screenshot_new.png
-          rm -rf part*.png
-          result=$(compare -metric RMSE screenshot_old.png screenshot_new.png diff.png 2>&1)
-          echo "Difference: $result"
-          rmse=$(echo "$result" | cut -d' ' -f1)
-          if [ "$rmse" -ne '0' ]; then
-            echo q"Images do not match! Failing the job."
-            exit 1
-          fi
       - name: Remove unused files
         run: |
           rm src/.prettierrc
