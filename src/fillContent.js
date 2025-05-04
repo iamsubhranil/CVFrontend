@@ -1,5 +1,5 @@
-import { PROJECTS } from "./projects.js";
-import { USER } from "./userdetails.js";
+import { PROJECTS } from "./data/projects.js";
+import { USER } from "./data/userdetails.js";
 import { IMAGEMAP } from "./resources.js";
 
 const CLASSNAMES = {

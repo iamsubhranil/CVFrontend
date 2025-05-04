@@ -26,10 +26,9 @@ jobs:
         run: |
           rm src/.prettierrc
           rm src/input.css
+          rm -rf src/data
           rm src/fillContent.js
-          rm src/userdetails.js
           rm src/resources.js
-          rm src/projects.js
           rm src/generateLatex.js
           rm src/takeScreenshot.cjs
       - uses: azure/login@v1
