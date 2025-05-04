@@ -19,7 +19,9 @@ jobs:
       - name: Generate caching artifacts
         run: |
           npx http-server src -p 8000 &
+          pid=$!
           node src/takeScreenshot.cjs
+          kill $pid
           convert -append part*.png screenshot_old.png
           rm -rf part*.png
       - name: Prerender and minify HTML
@@ -30,13 +32,17 @@ jobs:
           popd
       - name: Generate and compare screenshot
         run: |
+          npx http-server src -p 8000 &
+          pid=$!
           node src/takeScreenshot.cjs nocache
+          kill $pid
           convert -append part*.png screenshot_new.png
           rm -rf part*.png
           result=$(compare -metric RMSE screenshot_old.png screenshot_new.png diff.png 2>&1)
           echo "Difference: $result"
-          if [ "$result" -ne '0 (0)' ]; then
-            echo "Images do not match! Failing the job."
+          rmse=$(echo "$result" | cut -d' ' -f1)
+          if [ "$rmse" -ne '0' ]; then
+            echo q"Images do not match! Failing the job."
             exit 1
           fi
       - name: Remove unused files
