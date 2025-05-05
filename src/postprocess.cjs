@@ -93,7 +93,6 @@ async function embedSubsetFont(html, fontPath, usedText) {
 const inlineCSS = async (htmlContent) => {
 	const beasties = new Beasties({
 		path: ".",
-		pruneSource: true,
 		reduceInlineStyles: false,
 		logLevel: "silent",
 	});
@@ -106,9 +105,7 @@ function removeExternalStylesheetLinks(html) {
 	const dom = new JSDOM(html);
 	const document = dom.window.document;
 
-	const links = [
-		...document.querySelectorAll('link[rel="stylesheet"][href]'),
-	];
+	const links = [...document.querySelectorAll('link[rel="style"][href]')];
 	links.forEach((link) => link.remove());
 
 	return dom.serialize();
