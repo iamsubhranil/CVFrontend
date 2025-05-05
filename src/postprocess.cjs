@@ -99,6 +99,35 @@ const inlineCSS = async (htmlContent) => {
 	return htmlWithInlineCSS;
 };
 
+function inlineBackground0(html) {
+	var dom = new JSDOM(html);
+	var document = dom.window.document;
+	const background0Element = document.getElementById("background_0");
+	if (!background0Element) {
+		return html;
+	}
+	const background0Path = background0Element.src;
+	const fs = require("fs");
+	if (!background0Path || !fs.existsSync(background0Path)) {
+		return html;
+	}
+	// Check if the size is < 50KB
+	const stats = fs.statSync(background0Path);
+	if (stats.size < 50 * 1024) {
+		const background0 = fs.readFileSync(background0Path, {
+			encoding: "base64",
+		});
+		const extension = path.extname(background0Path).slice(1);
+		document.body.style.backgroundImage =
+			"url(data:image/" + extension + ";base64," + background0 + ")";
+		document.body.removeChild(background0Element);
+		fs.rmSync(background0Path, { force: true });
+		return dom.serialize();
+	} else {
+		return html;
+	}
+}
+
 // Function to remove external stylesheet links
 function removeExternalStylesheetLinks(html) {
 	const dom = new JSDOM(html);
@@ -124,6 +153,7 @@ function removeExternalStylesheetLinks(html) {
 		return;
 	}
 
+	// Step 2: Inline the font
 	const fontPath = await downloadFont(fontUrl);
 	const usedText = extractUsedText(html);
 	const htmlWithEmbeddedFont = await embedSubsetFont(
@@ -132,10 +162,13 @@ function removeExternalStylesheetLinks(html) {
 		usedText + "0123456789" // Subset all numbers due to the counter
 	);
 
-	// Step 5: Inline the CSS
-	const htmlWithInlineCSS = await inlineCSS(htmlWithEmbeddedFont);
+	// Step 3: Inline background image
+	const htmlWithInlineBackground = inlineBackground0(htmlWithEmbeddedFont);
 
-	// Step 6: Remove external stylesheet links
+	// Step 4: Inline the CSS
+	const htmlWithInlineCSS = await inlineCSS(htmlWithInlineBackground);
+
+	// Step 5: Remove external stylesheet links
 	const htmlWithoutExternalStyles =
 		removeExternalStylesheetLinks(htmlWithInlineCSS);
 

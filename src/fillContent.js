@@ -379,28 +379,7 @@ function prepare() {
 			removeElement("js_projects");
 			removeElement("js_userdetails");
 			removeElement("js_resources");
-
-			if (Object.keys(IMAGEMAP).length > 0) {
-				import("fs").then((fs) => {
-					const background0Path =
-						"src/" + IMAGEMAP[USER["backgrounds"][0]].file;
-					// Check if the size is < 50KB
-					const stats = fs.statSync(background0Path);
-					if (stats.size < 50 * 1024) {
-						const background0 = fs.readFileSync(background0Path, {
-							encoding: "base64",
-						});
-						getDocument().body.style.backgroundImage =
-							"url(data:image/png;base64," + background0 + ")";
-						getDocument().body.removeChild(
-							getElement("background_" + 0)
-						);
-					}
-					console.log(DOM.serialize());
-				});
-			} else {
-				console.log(DOM.serialize());
-			}
+			console.log(DOM.serialize());
 		});
 	} else {
 		populateContent();
