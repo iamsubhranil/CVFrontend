@@ -10,7 +10,6 @@ const { JSDOM } = jsdom;
 
 // Input file paths
 const htmlPath = "./index2.html";
-const outputPath = "./final.html";
 
 function extractFontUrlFromStyle(html) {
 	const dom = new JSDOM(html);
@@ -105,7 +104,10 @@ function removeExternalStylesheetLinks(html) {
 	const dom = new JSDOM(html);
 	const document = dom.window.document;
 
-	const links = [...document.querySelectorAll('link[rel="style"][href]')];
+	const links = [
+		...document.querySelectorAll('link[rel="stylesheet"][href]'),
+		...document.querySelectorAll('link[as="style"][href]'),
+	];
 	links.forEach((link) => link.remove());
 
 	return dom.serialize();
