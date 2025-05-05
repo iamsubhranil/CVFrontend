@@ -127,7 +127,7 @@ function removeExternalStylesheetLinks(html) {
 	const htmlWithEmbeddedFont = await embedSubsetFont(
 		html,
 		fontPath,
-		usedText
+		usedText + "0123456789" // Subset all numbers due to the counter
 	);
 
 	// Step 5: Inline the CSS
