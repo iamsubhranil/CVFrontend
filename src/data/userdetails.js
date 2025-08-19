@@ -33,11 +33,11 @@ export const USER = {
 			"highlights": [
 				"Primarily worked in the middle-end and backend of the target compiler",
 				"Implemented various architectural features in the compiler for existing and next-gen products",
-				"Wrote new functional and optimization passes",
-				"Worked on fixing bugs and enhancing codegen for existing passes",
-				"Solved end-to-end compiler bugs in various Steam top titles",
-				"Wrote a lot of tools and automations for aiding end-to-end debugging",
-				"Brought up new members in the team and guided in their projects"
+				"Wrote multiple new functional and optimization passes",
+				"Fixed 50+ bugs and enhanced codegen for existing passes",
+				"Solved end-to-end compiler bugs in 10+ Steam top titles",
+				"Wrote 10+ tools and automations for aiding end-to-end debugging",
+				"Brought up 2 new members in the team and guided in their projects"
 			]
 		}
 	],
