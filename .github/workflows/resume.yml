@@ -26,6 +26,7 @@ jobs:
             - name: Generate screenshots
               run: |
                 npx http-server src -p 8000 &
+                sleep 10
                 node src/takeScreenshot.cjs
                 convert -append *.png screenshot.jpg
                 convert part0.png -resize 1200x750 thumbnail.jpg
