@@ -16,9 +16,9 @@ export const PROJECTS = [
                 "keywords": ["C", "C++", "Parser", "Compiler", "Interpreter", "LLVM", "JIT"],
 				"details": [
 					"Developed a high-performance, object-oriented programming language in C++",
-					"Outperformed Python and Lua in benchmark tests",
 					"Implemented a fast bytecode virtual machine",
 					"Employed a custom arena-based memory allocator for a 20% speed boost",
+					"Outperformed Python and Lua in benchmark tests",
 					"Initial JIT implementation using the LLVM C API already showing 6x performance improvements",
 					"Managed CI/CD processes for the project using GitHub actions",
 				],
@@ -45,9 +45,9 @@ export const PROJECTS = [
                 "keywords": ["Paging", "Heap", "Bootloader", "x86", "Threads", "Scheduler"],
 				"details": [
 					"Designed and implemented an x86-based operating system using C++",
-					"Implemented interrupts using descriptor tables",
 					"Features virtual memory based on two level paging and a hybrid tree based heap",
 					"Introduced time slice based round-robin preemptive multitasking",
+					"Implemented interrupts using descriptor tables",
 					"Added console output with detailed stack traces for effective debugging and troubleshooting",
 				],
 			},

@@ -286,6 +286,10 @@ function populateContent() {
 	var projects = PROJECTS[0];
 	var user = USER;
 
+	const numProjects = projects["showcase"].length > 3 ? 3 : -1;
+	const linesPerProject = 3;
+	const renderOtherProjects = false;
+
 	console.log(LATEX_BEGIN);
 
 	console.log("\\begin{document}\n\n");
@@ -311,19 +315,22 @@ function populateContent() {
 			"Projects",
 			projects["showcase"],
 			generateProjectContent,
-			projects["showcase"].length > 3 ? 3 : -1
+			numProjects,
+			linesPerProject
 		)
 	);
 	console.log(
 		generateSection("Education", user["education"], generateEducation)
 	);
-	console.log(
-		generateSection(
-			"Other Projects",
-			projects["others"],
-			generateOtherProject
-		)
-	);
+	if (renderOtherProjects) {
+		console.log(
+			generateSection(
+				"Other Projects",
+				projects["others"],
+				generateOtherProject
+			)
+		);
+	}
 	console.log(
 		generateSection(
 			"Skills \\& Interests",
