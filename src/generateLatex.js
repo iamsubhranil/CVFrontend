@@ -147,22 +147,29 @@ function createHeading(val, additional = null, isproject = false) {
 	return name;
 }
 
-function generateProjectContent(project) {
+function generateProjectContent(project, lines_per_item = -1) {
 	var name = createHeading(project["name"], project["keywords"], true);
 	if (project["link"]) {
 		// name.href = project["link"];
+	}
+	if (lines_per_item > 0 && project["details"].length > lines_per_item) {
+		project["details"] = project["details"].slice(0, lines_per_item);
 	}
 	var details = createUList(project["details"]);
 	return [name, details];
 }
 
-function generateList(name, projects, func) {
+function generateList(name, projects, func, items = -1, lines_per_item = -1) {
 	var elements = "";
 	if (name == "Skills \\& Interests") {
 		elements = "\\small{\\item{\n";
 	}
+	// Only take the first 'items' projects if items is specified
+	if (items > 0 && projects.length > items) {
+		projects = projects.slice(0, items);
+	}
 	for (var p of projects) {
-		for (var v of func(p)) {
+		for (var v of func(p, lines_per_item)) {
 			elements += v;
 		}
 	}
@@ -195,7 +202,7 @@ function generateNoticePeriodText(notice_period) {
 	return desigAdd;
 }
 
-function generateWorkExperience(work_exp) {
+function generateWorkExperience(work_exp, lines_per_item = -1) {
 	var company = createHeading(work_exp["company"], work_exp["duration"]);
 	var notice_period = work_exp["notice_period"];
 	var desig = createTextNode(
@@ -206,7 +213,7 @@ function generateWorkExperience(work_exp) {
 	return [company, desig, highlights];
 }
 
-function generateEducation(education) {
+function generateEducation(education, lines_per_item = -1) {
 	var school = createHeading(education["school"], education["duration"]);
 	var degree = createTextNode(
 		education["degree"],
@@ -215,7 +222,7 @@ function generateEducation(education) {
 	return [school, degree];
 }
 
-function generateOtherProject(project) {
+function generateOtherProject(project, lines_per_item = -1) {
 	var name = createHeading(project["name"], project["keywords"], true);
 	if (project["link"]) {
 		// name.href = project["link"];
@@ -224,7 +231,7 @@ function generateOtherProject(project) {
 	return [name, details];
 }
 
-function generateSkillsAndInterests(part) {
+function generateSkillsAndInterests(part, lines_per_item = -1) {
 	var name =
 		"\\textbf{" +
 		part["name"] +
@@ -234,8 +241,17 @@ function generateSkillsAndInterests(part) {
 	return [name];
 }
 
-function generateSection(name, data, renderer) {
-	return addSection(name, generateList(name, data, renderer));
+function generateSection(
+	name,
+	data,
+	renderer,
+	items = -1,
+	lines_per_item = -1
+) {
+	return addSection(
+		name,
+		generateList(name, data, renderer, items, lines_per_item)
+	);
 }
 
 function generateHeading(name, phone, email, github, linkedin) {
@@ -285,16 +301,17 @@ function populateContent() {
 	);
 	console.log(
 		generateSection(
-			"Projects",
-			projects["showcase"],
-			generateProjectContent
+			"Work Experience",
+			user["work_experience"].reverse(),
+			generateWorkExperience
 		)
 	);
 	console.log(
 		generateSection(
-			"Work Experience",
-			user["work_experience"].reverse(),
-			generateWorkExperience
+			"Projects",
+			projects["showcase"],
+			generateProjectContent,
+			projects["showcase"].length > 3 ? 3 : -1
 		)
 	);
 	console.log(
